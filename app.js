@@ -8,12 +8,13 @@ const express = require('express');
 const createError = require('http-errors');
 const logger = require('morgan');
 const path = require('path');
+const mailer = require('./routes/nodemailer');
 
 const app = express();
 const { PORT } = process.env;
 
 // Импортируем созданный в отдельный файлах рутеры.
-// const indexRouter = require('./routes/index');
+const indexRouter = require('./routes/index');
 // const entriesRouter = require('./routes/entries');
 
 app.use('/', indexRouter);
@@ -60,4 +61,18 @@ app.use((err, req, res) => {
 
 app.listen(PORT, () => {
   console.log(`server started PORT: ${PORT}`);
+});
+
+app.post('/', (req, res) => {
+  //   if (!req.body.email || !req.body.pass) return res.sendStatus(400);
+  const message = {
+
+    to: 'a1evtina@list.ru',
+    subject: 'Hello',
+    text: 'We will call you in 5 min',
+    html: '<b>Thank you for your interest</b>',
+  };
+  mailer(message);
+  user = req.body;
+  res.redirect('/rega');
 });
