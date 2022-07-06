@@ -8,10 +8,15 @@ const express = require('express');
 const createError = require('http-errors');
 const logger = require('morgan');
 const path = require('path');
-const mailer = require('./routes/nodemailer');
+
+const { sequelize } = require('./db/models');
+const configApp = require('./config/configApp');
 
 const app = express();
-const { PORT } = process.env;
+
+configApp(app);
+const PORT = process.env.PORT ?? 3000;
+
 const nodemailer = require('nodemailer');
 const transporter = require('./routes/nodemailer');
 
