@@ -19,7 +19,7 @@ const PORT = process.env.PORT ?? 3000;
 // const indexRouter = require('./routes/index');
 // const entriesRouter = require('./routes/entries');
 
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
 
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
