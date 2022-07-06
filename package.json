@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js --ext js,jsx --ignore sessions"
+    "start": "node app.js",
+    "dev": "nodemon app.js --ext js,jsx,css"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,7 @@
     "express-session": "^1.17.3",
     "http-errors": "^2.0.0",
     "morgan": "^1.10.0",
+    "nodemailer": "^6.7.6",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
     "react": "^18.2.0",
