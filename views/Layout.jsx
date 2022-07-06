@@ -2,6 +2,7 @@ const React = require('react');
 const NavMenu = require('./NavMenu');
 
 module.exports = function Layout({ user, children }) {
+
   return (
     <html lang="en">
       <head>

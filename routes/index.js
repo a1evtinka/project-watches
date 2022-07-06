@@ -1,20 +1,25 @@
-const mailer = require('./nodemailer');
-const router = require('router')
+// const router = require('express').Router();
+// const nodemailer = require('nodemailer');
+// const transporter = require('./nodemailer');
 
-app.post('/', (req, res) => {
-//   if (!req.body.email || !req.body.pass) return res.sendStatus(400);
-  const message = {
+// const mail = {
+//   from: 'Yashwant Chavan <a1evtina@list.ru>',
+//   to: 'a1evtina@list.ru',
+//   subject: 'Send Email Using Node.js',
+//   text: 'Node.js New world for me',
+//   html: '<b>Node.js New world for me</b>',
+// };
 
-    to: 'a1evtina@list.ru',
-    subject: 'Hello',
-    text: 'We will call you in 5 min',
-    html: '<b>Thank you for your interest</b>',
-  };
-  mailer(message);
-  user = req.body;
-  res.redirect('/rega');
-});
+// router.get('/', (req, res) => {
+//   transporter.sendMail(mail, (error, response) => {
+//     if (error) {
+//       console.log(error);
+//     } else {
+//       console.log(`Message sent: ${response.message}`);
+//     }
 
-module.exports = router;
+//     transporter.close();
+//   });
+// });
 
-console.log('joka and boka');
+// module.exports = router;
