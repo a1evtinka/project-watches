@@ -12,12 +12,32 @@ const mailer = require('./routes/nodemailer');
 
 const app = express();
 const { PORT } = process.env;
+const nodemailer = require('nodemailer');
+const transporter = require('./routes/nodemailer');
+
+const mail = {
+  from: 'Yashwant Chavan <a1evtina@list.ru>',
+  to: 'a1evtina@list.ru',
+  subject: 'Send Email Using Node.js',
+  text: 'Node.js New world for me',
+  html: '<b>Node.js New world for me</b>',
+};
+
+transporter.sendMail(mail, (error, response) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log(`Message sent: ${response.message}`);
+  }
+
+  transporter.close();
+});
 
 // Импортируем созданный в отдельный файлах рутеры.
 const indexRouter = require('./routes/index');
 // const entriesRouter = require('./routes/entries');
 
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
 
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
