@@ -1,15 +1,21 @@
 const React = require('react');
 
-module.exports = function Layout() {
+module.exports = function Layout({ children }) {
   return (
     <html lang="en">
       <head>
         <meta charSet="UTF-8" />
-        <meta httpE quiv="X-UA-Compatible" content="IE=edge" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
         <title>Document</title>
       </head>
-      <body />
+      <body>
+        {children}
+      </body>
     </html>
   );
 };
