@@ -10,17 +10,23 @@ const logger = require('morgan');
 const path = require('path');
 
 const app = express();
-const { PORT } = process.env;
+const PORT = process.env.PORT ;
 
 // Импортируем созданный в отдельный файлах рутеры.
 // const indexRouter = require('./routes/index');
 // const entriesRouter = require('./routes/entries');
+const formRouter = require('./routes/formRouter');
+// console.log(formRouter)
+const indexRouter = require('./routes/index')
 
 app.use('/', indexRouter);
+app.use('/form', formRouter);
 
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({
+  extended: true
+}));
 app.use(express.json());
 
 app.use((req, res, next) => {
