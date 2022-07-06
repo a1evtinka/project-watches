@@ -8,9 +8,12 @@ const express = require('express');
 const createError = require('http-errors');
 const logger = require('morgan');
 const path = require('path');
+const { sequelize } = require('./db/models');
+const configApp = require('./config/configApp');
 
 const app = express();
-const { PORT } = process.env;
+configApp(app);
+const PORT = process.env.PORT ?? 3000;
 
 // Импортируем созданный в отдельный файлах рутеры.
 // const indexRouter = require('./routes/index');
