@@ -9,7 +9,7 @@ module.exports = function Layout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" />
-        <script defer src="public/application.js" />
+        <script defer src="/application.js" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
         <title>Document</title>
       </head>

@@ -9,7 +9,7 @@ module.exports = function Form() {
         <div className="row h-100 justify-content-center align-items-center">
           <div className="col-10 col-md-8 col-lg-6">
 
-            <form className="signup-form" action="/reg" method="post">
+            <form className="signup-form" action="/" method="post">
               <div className="form-group mt-5">
                 <input type="text" name="username" className="form-control" placeholder="name..." required />
               </div>
@@ -29,9 +29,8 @@ module.exports = function Form() {
 
               <div>  
                 <input type="file" name="file" id="file" />
-                <button name="submit" type="submit">Загрузить файл</button>
+                <button id="btnupload" name="submit" type="submit">Загрузить файл</button>
               </div>
-
 
               {/* <div>
                 <label className="form-label" htmlFor="customFile">Приложите ваш эскиз</label>
