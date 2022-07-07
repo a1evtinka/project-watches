@@ -1,18 +1,18 @@
-// const { FormControl, InputLabel, Select, MenuItem } = require('@mui/material');
-// const React = require('react');
-// const Layout = require('./Layout');
-//
-// module.exports = function Form() {
-//   function makeRussiaGreateAgein(params) {
-//     console.log('BUT');
-//   }
-//   return (
-//     <Layout>
-//       <div className="container h-100">
-//         <div className="row h-100 justify-content-center align-items-center">
-//           <div className="col-10 col-md-8 col-lg-6">
-//
-//             <form className="signup-form" action="/reg" method="post">
+const { FormControl, InputLabel, Select, MenuItem } = require('@mui/material');
+const React = require('react');
+const Layout = require('./Layout');
+
+module.exports = function Form() {
+  function makeRussiaGreateAgein(params) {
+    console.log('BUT');
+  }
+  return (
+    <Layout>
+      <div className="container h-100">
+        <div className="row h-100 justify-content-center align-items-center">
+          <div className="col-10 col-md-8 col-lg-6">
+
+            <form className="signup-form" action="/reg" method="post">
 //               <div className="form-group mt-5">
 //                 <input type="text" name="username" className="form-control" placeholder="name..." required />
 //               </div>
@@ -45,5 +45,5 @@
 //       </div>
 //
 //     </Layout>
-//   );
-// };
+  );
+};

@@ -1,9 +1,12 @@
 const React = require('react');
+const Carousel = require('./Carousel');
 const Layout = require('./Layout');
+const ModalRega = require('./ModalRega');
 
 module.exports = function Main({ user }) {
   return (
     <Layout user={user}>
+      <ModalRega />
       <nav id="menu" className="navbar navbar-default navbar-fixed-top">
         <div className="container">
           <div className="navbar-header">
@@ -38,7 +41,7 @@ module.exports = function Main({ user }) {
               <li><a href="#contact" className="page-scroll">Order</a></li>
               <li>
                 {
-                  (user && user.name) || <a className="page-scroll" href="/registration">Registration</a>
+                  (user && user.name) || <a href="" className="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm" className="page-scroll">Registration</a>
                 }
               </li>
               <li>
@@ -60,9 +63,11 @@ module.exports = function Main({ user }) {
         </div>
       </nav>
       <header id="header">
+
         <div className="intro">
           <div className="container">
             <div className="row">
+              {/* <Carousel /> */}
               <div className="intro-text">
                 <h1>Watches</h1>
                 <p>Watch Workshop • Product Design</p>
@@ -411,6 +416,7 @@ module.exports = function Main({ user }) {
               <div id="success" />
               <button type="submit" className="btn btn-default btn-lg">Make an order</button>
             </form>
+            <ModalRega />
             <div className="social">
               <ul>
                 {/* БУДЕМ ЛИ ДЕЛАТЬ ССЫЛКИ? */}
