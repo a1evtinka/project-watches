@@ -4,8 +4,8 @@
 const indexRouter = require('express').Router();
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
-const { Watch } = require('../db/models');
-const WatchesList = require('../views/WatchesList');
+// const { Watch } = require('../db/models');
+// const WatchesList = require('../views/WatchesList');
 
 // indexRouter.get('/', async (req, res) => {
 //   console.log('Trying to get all the stars, my lord!');

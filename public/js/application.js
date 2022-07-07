@@ -1,3 +1,11 @@
+// const bootstrap = require('bootstrap');
+//
+// const myCarousel = document.querySelector('#myCarousel');
+// const carousel = new bootstrap.Carousel(myCarousel, {
+//   interval: 2000,
+//   wrap: false,
+// });
+
 // Фетч для формы регистрации (если уже вошли ее нет - поэтому вопрос)
 document.registration?.addEventListener('submit', async (event) => {
   event.preventDefault();
