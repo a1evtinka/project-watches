@@ -1,7 +1,7 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function NavMenu({ user }) {
+module.exports = function Main({ user }) {
   return (
     <Layout user={user}>
       <nav id="menu" className="navbar navbar-default navbar-fixed-top">
@@ -46,6 +46,13 @@ module.exports = function NavMenu({ user }) {
                   user
                     ? <a className="page-scroll" href="/auth/logout">Logout</a>
                     : <a className="page-scroll" href="/login">Login</a>
+                }
+              </li>
+              <li>
+                {
+                  (user && user.admin)
+                    ? <a className="page-scroll" href="/admin_panel">Панель администратора</a>
+                    : <div />
                 }
               </li>
             </ul>
