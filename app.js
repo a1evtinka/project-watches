@@ -45,7 +45,7 @@ const ordersRouter = require('./routes/orders');
 // const entriesRouter = require('./routes/entries');
 
 // app.use('/', indexRouter);
-app.use('/orders', ordersRouter);
+app.use('/admin_panel', ordersRouter);
 
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
