@@ -9,18 +9,14 @@ const createError = require('http-errors');
 const logger = require('morgan');
 const path = require('path');
 
+const { sequelize } = require('./db/models');
+const configApp = require('./config/configApp');
+
 const app = express();
-const PORT = process.env.PORT ;
+// const PORT = process.env.PORT ;
 
-// Импортируем созданный в отдельный файлах рутеры.
-// const indexRouter = require('./routes/index');
-// const entriesRouter = require('./routes/entries');
-const formRouter = require('./routes/formRouter');
-// console.log(formRouter)
-const indexRouter = require('./routes/index')
-
-app.use('/', indexRouter);
-app.use('/form', formRouter);
+configApp(app);
+const PORT = process.env.PORT ?? 3000;
 
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -28,6 +24,42 @@ app.use(express.urlencoded({
   extended: true
 }));
 app.use(express.json());
+
+
+// const nodemailer = require('nodemailer');
+// const transporter = require('./routes/nodemailer');
+
+// const mail = {
+//   from: 'Yashwant Chavan <a1evtina@list.ru>',
+//   to: 'a1evtina@list.ru',
+//   subject: 'Send Email Using Node.js',
+//   text: 'Node.js New world for me',
+//   html: '<b>Node.js New world for me</b>',
+// };
+
+// transporter.sendMail(mail, (error, response) => {
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log(`Message sent: ${response.message}`);
+//   }
+
+//   transporter.close();
+// });
+
+// Импортируем созданный в отдельный файлах рутеры.
+const indexRouter = require('./routes/index');
+// const entriesRouter = require('./routes/entries');
+const formRouter = require('./routes/formRouter');
+
+// app.use('/', indexRouter);
+app.use('/form', formRouter);
+app.use('/', indexRouter);
+
+//роутер для загрузки изображений
+const uploadRouter = require('./routes/uploadRouter');
+
+app.use('/', uploadRouter);
 
 app.use((req, res, next) => {
   const error = createError(404, 'Запрашиваемой страницы не существует на сервере.');
@@ -66,4 +98,18 @@ app.use((err, req, res) => {
 
 app.listen(PORT, () => {
   console.log(`server started PORT: ${PORT}`);
+});
+
+app.post('/', (req, res) => {
+  //   if (!req.body.email || !req.body.pass) return res.sendStatus(400);
+  const message = {
+
+    to: 'a1evtina@list.ru',
+    subject: 'Hello',
+    text: 'We will call you in 5 min',
+    html: '<b>Thank you for your interest</b>',
+  };
+  mailer(message);
+  user = req.body;
+  res.redirect('/rega');
 });
