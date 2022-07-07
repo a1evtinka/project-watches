@@ -20,7 +20,6 @@ formRouter.get('/', async (req, res) => {
 
 formRouter.post('/form', async (req, res) => {
   // оборачиваем в трай-кетч
-
   const {
     name,
     email,
@@ -39,6 +38,7 @@ formRouter.post('/form', async (req, res) => {
     status: 'ок',
     errorMessage: 'Введите корректную почту'
   });
+  console.log('test')
 });
 
 module.exports = formRouter;
