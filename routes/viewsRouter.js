@@ -2,9 +2,16 @@ const viewsRouter = require('express').Router();
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const Registration = require('../views/Registration');
+const WatchesList = require('../views/WatchesList');
 const Login = require('../views/Login');
 
 // Создаем и рендерим компонент формы регистрации
+viewsRouter.get('/', (req, res) => {
+  const regform = React.createElement(WatchesList, {user: res.locals.user});
+  const html = ReactDOMServer.renderToStaticMarkup(regform);
+  res.write('<!doctype html>');
+  res.end(html);
+});
 viewsRouter.get('/registration', (req, res) => {
   const regform = React.createElement(Registration);
   const html = ReactDOMServer.renderToStaticMarkup(regform);

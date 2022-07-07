@@ -25,10 +25,16 @@ module.exports = function NavMenu({ user }) {
                   <a className="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/registration">Registration</a>
+                  {
+                    (user && user.name) || <a className="nav-link" href="/registration">Registration</a>
+                  }
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/login">Login</a>
+                  {
+                    user
+                      ? <a className="nav-link" href="/auth/logout">Logout</a>
+                      : <a className="nav-link" href="/login">Login</a>
+                  }
                 </li>
               </ul>
             </div>

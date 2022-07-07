@@ -1,18 +1,20 @@
 const authRouter = require('express').Router();
 const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
-const { Entry } = require('../db/models');
+// const { Entry } = require('../db/models');
 
 // Ручка метода пост для получения с фетча введенных данных из формы регистрации
 authRouter.post('/registration', async (req, res) => {
   // оборачиваем в трай-кетч
   try {
     // деструктором забираем из рег.бади введенные емейл и пароль в форму регистрации
-    const { login, email, password } = req.body;
+    const {
+      name, email, password, admin,
+    } = req.body;
     // ищем есть ли в БД полученный с фитча емейл
     const user = await User.findOne({
       where: {
-        login,
+        name,
       },
     });
     if (!email.includes('@')) {
@@ -32,9 +34,10 @@ authRouter.post('/registration', async (req, res) => {
     const hash = await bcrypt.hash(req.body.password, 10);
     // Создаем запись в БД с кэшированным паролем
     await User.create({
-      login,
+      name,
       email,
       password: hash,
+      admin,
     });
     // Отправляем на фронт, что все гуд
     res.json({ status: 'ok' });
@@ -48,11 +51,11 @@ authRouter.post('/login', async (req, res) => {
   // оборачиваем в трай-кетч
   try {
     // деструктором забираем из рег.бади введенные емейл и пароль в форму входа(логина)
-    const { login, password } = req.body;
+    const { email, password } = req.body;
     // ищем есть ли в БД пользователь
     const user = await User.findOne({
       where: {
-        login,
+        email,
       },
     });
     // Если пользователя нет, то отправляем ошибку
