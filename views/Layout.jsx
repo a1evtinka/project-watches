@@ -1,5 +1,5 @@
 const React = require('react');
-const NavMenu = require('./NavMenu');
+// const NavMenu = require('./navMenu');
 
 module.exports = function Layout({ user, children }) {
 
@@ -18,7 +18,7 @@ module.exports = function Layout({ user, children }) {
       </head>
       <body>
         {/* Добавляем в бади перед чилдрен компонент навигейшен меню */}
-        <NavMenu user={user} />
+        {/* <NavMenu user={user} /> */}
         {children}
       </body>
     </html>

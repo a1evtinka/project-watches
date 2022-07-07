@@ -40,9 +40,11 @@ transporter.sendMail(mail, (error, response) => {
 
 // Импортируем созданный в отдельный файлах рутеры.
 const indexRouter = require('./routes/index');
+const ordersRouter = require('./routes/orders');
 // const entriesRouter = require('./routes/entries');
 
 // app.use('/', indexRouter);
+app.use('/orders', ordersRouter);
 
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
