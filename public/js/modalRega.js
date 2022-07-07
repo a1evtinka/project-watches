@@ -32,7 +32,7 @@ button.addEventListener('click', async (event) => {
     // Если пришел ответ ок
     if (result.status === 'ok') {
       // то перенаправляем на ручку логина(входа)
-      window.location.href = '/login';
+      window.location.href = '/';
 //       // если нет (не ок)
     } else {
       // То дорисовываем (дописываем в див) полученную ошибку(пользователь уже есть)

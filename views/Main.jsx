@@ -2,11 +2,13 @@ const React = require('react');
 const Carousel = require('./Carousel');
 const Layout = require('./Layout');
 const ModalRega = require('./ModalRega');
+const ModalLogin = require('./ModalLogin');
 
 module.exports = function Main({ user }) {
   return (
     <Layout user={user}>
       <ModalRega />
+      <ModalLogin />
       <nav id="menu" className="navbar navbar-default navbar-fixed-top">
         <div className="container">
           <div className="navbar-header">
@@ -48,7 +50,7 @@ module.exports = function Main({ user }) {
                 {
                   user
                     ? <a className="page-scroll" href="/auth/logout">Logout</a>
-                    : <a className="page-scroll" href="/login">Login</a>
+                    : <a href="" className="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm2" className="page-scroll">Login</a>
                 }
               </li>
               <li>
