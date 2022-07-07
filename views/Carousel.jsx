@@ -13,43 +13,20 @@ module.exports = function Carousel() {
               <li data-target="#carousel-example-generic" data-slide-to="1" />
               <li data-target="#carousel-example-generic" data-slide-to="2" />
             </ol>
-            <div className="carousel-inner">
+            <div className="carousel-inner" id="funnyInner">
               <div className="item active">
-                <img src="/img/test12.jpg" alt="First slide" />
+                <img src="/img/test20.jpeg" alt="First slide" />
                 <div className="carousel-caption">
-                  <h3>
-                    First slide
-
-                  </h3>
-                  <p>
-                    Nulla vitae elit libero, a pharetra augue mollis interdum.
-
-                  </p>
                 </div>
               </div>
               <div className="item">
-                <img src="/img/test12.jpg" alt="Second slide" />
+                <img src="/img/test13.jpg" alt="Second slide" />
                 <div className="carousel-caption">
-                  <h3>
-                    Second slide
-                  </h3>
-                  <p>
-                    Nulla vitae elit libero, a pharetra augue mollis interdum.
-
-                  </p>
                 </div>
               </div>
               <div className="item">
-                <img src="/img/test12.jpg" alt="Third slide" />
+                <img src="/img/test17.jpg" alt="Third slide" />
                 <div className="carousel-caption">
-                  <h3>
-                    Third slide
-
-                  </h3>
-                  <p>
-                    Nulla vitae elit libero, a pharetra augue mollis interdum.
-
-                  </p>
                 </div>
               </div>
             </div>
@@ -66,13 +43,14 @@ module.exports = function Carousel() {
             </a>
           </div>
           <div className="main-text hidden-xs">
-            <div className="col-md-12 text-center">
+            <div className="col-md-12 text-center myheader">
               <h1>
-                Static Headline
-
+                Pavel Egorov Watches
               </h1>
+              <p>
+                Exclusive Watches • Individual Design
+              </p>
               <h3>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 <a href="#about" className="btn btn-custom btn-lg page-scroll">Learn More</a>
               </h3>
             </div>
