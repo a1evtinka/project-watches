@@ -15,4 +15,4 @@ const { SMTP_TO_EMAIL, SMTP_TO_PASSWORD } = process.env;
 //   },
 // );
 
-module.exports = transporter;
+// module.exports = transporter;

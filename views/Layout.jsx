@@ -57,6 +57,7 @@ module.exports = function Layout({ user, children }) {
         <script type="text/javascript" src="/js/contact_me.js" />
         <script type="text/javascript" src="/js/main.js" />
         <script type="text/javascript" defer src="/js/application.js" />
+        <script defer src="/phoneChecker.js"/>
       </body>
     </html>
   );
