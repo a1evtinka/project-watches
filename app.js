@@ -9,7 +9,7 @@ const createError = require('http-errors');
 const logger = require('morgan');
 const path = require('path');
 
-const { sequelize } = require('./db/models');
+// const { sequelize } = require('./db/models');
 const configApp = require('./config/configApp');
 
 const app = express();
@@ -17,28 +17,29 @@ const app = express();
 configApp(app);
 const PORT = process.env.PORT ?? 3000;
 
-const nodemailer = require('nodemailer');
-const transporter = require('./routes/nodemailer');
+// const nodemailer = require('nodemailer');
+// const transporter = require('./routes/nodemailer');
 
-const mail = {
-  from: 'Yashwant Chavan <a1evtina@list.ru>',
-  to: 'a1evtina@list.ru',
-  subject: 'Send Email Using Node.js',
-  text: 'Node.js New world for me',
-  html: '<b>Node.js New world for me</b>',
-};
+// const mail = {
+//   from: 'Yashwant Chavan <a1evtina@list.ru>',
+//   to: 'a1evtina@list.ru',
+//   subject: 'Send Email Using Node.js',
+//   text: 'Node.js New world for me',
+//   html: '<b>Node.js New world for me</b>',
+// };
 
-transporter.sendMail(mail, (error, response) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(`Message sent: ${response.message}`);
-  }
-
-  transporter.close();
-});
+// transporter.sendMail(mail, (error, response) => {
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log(`Message sent: ${response.message}`);
+//   }
+//
+//   transporter.close();
+// });
 
 // Импортируем созданный в отдельный файлах рутеры.
+
 const indexRouter = require('./routes/index');
 const ordersRouter = require('./routes/orders');
 // const entriesRouter = require('./routes/entries');
@@ -90,16 +91,16 @@ app.listen(PORT, () => {
   console.log(`server started PORT: ${PORT}`);
 });
 
-app.post('/', (req, res) => {
-  //   if (!req.body.email || !req.body.pass) return res.sendStatus(400);
-  const message = {
-
-    to: 'a1evtina@list.ru',
-    subject: 'Hello',
-    text: 'We will call you in 5 min',
-    html: '<b>Thank you for your interest</b>',
-  };
-  mailer(message);
-  user = req.body;
-  res.redirect('/rega');
-});
+// app.post('/', (req, res) => {
+//   //   if (!req.body.email || !req.body.pass) return res.sendStatus(400);
+//   const message = {
+//
+//     to: 'a1evtina@list.ru',
+//     subject: 'Hello',
+//     text: 'We will call you in 5 min',
+//     html: '<b>Thank you for your interest</b>',
+//   };
+//   mailer(message);
+//   user = req.body;
+//   res.redirect('/rega');
+// });

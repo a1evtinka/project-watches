@@ -8,7 +8,7 @@ module.exports = function Registration({ user }) {
         Регистрация
       </h1>
       <form name="registration">
-        <label htmlFor="inputename">Login:</label>
+        <label htmlFor="inputename">Name:</label>
         <input type="text" name="inputename" placeholder="введите name" />
         <br />
         <label htmlFor="inputemail">Email:</label>
@@ -16,6 +16,9 @@ module.exports = function Registration({ user }) {
         <br />
         <label htmlFor="inputpassword">Пароль:</label>
         <input className="password" type="password" name="inputpassword" placeholder="введите password" required minLength={8} />
+        <br />
+        <label htmlFor="inputepromo">promocode:</label>
+        <input type="text" name="inputepromo" placeholder="введите promocode" />
         <br />
         <button type="submit">Register me!</button>
       </form>
