@@ -9,7 +9,7 @@ const createError = require('http-errors');
 const logger = require('morgan');
 const path = require('path');
 
-const { sequelize } = require('./db/models');
+// const { sequelize } = require('./db/models');
 const configApp = require('./config/configApp');
 
 const app = express();
@@ -17,14 +17,6 @@ const app = express();
 
 configApp(app);
 const PORT = process.env.PORT ?? 3000;
-
-app.use(logger('dev'));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded({
-  extended: true
-}));
-app.use(express.json());
-
 
 // const nodemailer = require('nodemailer');
 // const transporter = require('./routes/nodemailer');
@@ -43,18 +35,20 @@ app.use(express.json());
 //   } else {
 //     console.log(`Message sent: ${response.message}`);
 //   }
-
+//
 //   transporter.close();
 // });
 
 // Импортируем созданный в отдельный файлах рутеры.
+
 const indexRouter = require('./routes/index');
+const ordersRouter = require('./routes/orders');
 // const entriesRouter = require('./routes/entries');
 const formRouter = require('./routes/formRouter');
 
 // app.use('/', indexRouter);
-app.use('/form', formRouter);
-app.use('/', indexRouter);
+app.use('/admin_panel', ordersRouter);
+app.use('/form', formRouter)
 
 //роутер для загрузки изображений
 const uploadRouter = require('./routes/uploadRouter');
@@ -100,16 +94,16 @@ app.listen(PORT, () => {
   console.log(`server started PORT: ${PORT}`);
 });
 
-app.post('/', (req, res) => {
-  //   if (!req.body.email || !req.body.pass) return res.sendStatus(400);
-  const message = {
-
-    to: 'a1evtina@list.ru',
-    subject: 'Hello',
-    text: 'We will call you in 5 min',
-    html: '<b>Thank you for your interest</b>',
-  };
-  mailer(message);
-  user = req.body;
-  res.redirect('/rega');
-});
+// app.post('/', (req, res) => {
+//   //   if (!req.body.email || !req.body.pass) return res.sendStatus(400);
+//   const message = {
+//
+//     to: 'a1evtina@list.ru',
+//     subject: 'Hello',
+//     text: 'We will call you in 5 min',
+//     html: '<b>Thank you for your interest</b>',
+//   };
+//   mailer(message);
+//   user = req.body;
+//   res.redirect('/rega');
+// });

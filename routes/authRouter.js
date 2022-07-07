@@ -1,18 +1,23 @@
 const authRouter = require('express').Router();
 const bcrypt = require('bcrypt');
+const transporter = require('./nodemailer');
+
 const { User } = require('../db/models');
-const { Entry } = require('../db/models');
+
+// const { Entry } = require('../db/models');
 
 // Ручка метода пост для получения с фетча введенных данных из формы регистрации
 authRouter.post('/registration', async (req, res) => {
   // оборачиваем в трай-кетч
   try {
     // деструктором забираем из рег.бади введенные емейл и пароль в форму регистрации
-    const { login, email, password } = req.body;
+    const {
+      name, email, password, admin,
+    } = req.body;
     // ищем есть ли в БД полученный с фитча емейл
     const user = await User.findOne({
       where: {
-        login,
+        name,
       },
     });
     if (!email.includes('@')) {
@@ -32,10 +37,34 @@ authRouter.post('/registration', async (req, res) => {
     const hash = await bcrypt.hash(req.body.password, 10);
     // Создаем запись в БД с кэшированным паролем
     await User.create({
-      login,
+      name,
       email,
       password: hash,
+      admin,
     });
+
+    // отправка письма start
+    console.log('мыло пользователя', email);
+
+    const mail = {
+      from: 'Yashwant Chavan <pewatches2022@gmail.com>',
+      to: email,
+      subject: 'Send Email Using Node.js',
+      text: 'Node.js New world for me',
+      html: '<b>Node.js New world for me</b>',
+    };
+
+    transporter.sendMail(mail, (error, response) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(`Message sent: ${response.message}`);
+      }
+
+      transporter.close();
+    });
+    // отправка письма finish
+
     // Отправляем на фронт, что все гуд
     res.json({ status: 'ok' });
     // Если произошла ошибка, то от падения сервера спасает этот кетч
@@ -43,16 +72,17 @@ authRouter.post('/registration', async (req, res) => {
     res.status(500).json({ errorMessage: err.message });
   }
 });
+
 // Ручка метода пост для получения с фетча введенных данных из формы входа(логина)
 authRouter.post('/login', async (req, res) => {
   // оборачиваем в трай-кетч
   try {
     // деструктором забираем из рег.бади введенные емейл и пароль в форму входа(логина)
-    const { login, password } = req.body;
+    const { email, password } = req.body;
     // ищем есть ли в БД пользователь
     const user = await User.findOne({
       where: {
-        login,
+        email,
       },
     });
     // Если пользователя нет, то отправляем ошибку

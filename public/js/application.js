@@ -1,18 +1,5 @@
 
-//черновик загрузки файла на сервер
-// const btn = document.getElementById('btnupload');
-// btn.addEventListener('submit', (event) => {
-//   event.preventDefault()
-//   const data = document.getElementById('file').files[0];
-//   const entry = document.getElementById('file').files[0];
-//   console.log('doupload', entry, data);
-//   fetch(`/public/uploads/${encodeURIComponent(entry.name)}`, {
-//     method: 'PUT',
-//     body: data,
-//   });
-//   alert('your file has been uploaded');
-//   location.reload();
-// });
+
 document.orderForm.addEventListener('submit', async (event) => { 
     event.preventDefault();
     console.log(event.target)
@@ -34,18 +21,29 @@ document.orderForm.addEventListener('submit', async (event) => {
   })
 
 // module.exports = doupload
+// const bootstrap = require('bootstrap');
+//
+// const myCarousel = document.querySelector('#myCarousel');
+// const carousel = new bootstrap.Carousel(myCarousel, {
+//   interval: 2000,
+//   wrap: false,
+// });
+
 // Фетч для формы регистрации (если уже вошли ее нет - поэтому вопрос)
 document.registration?.addEventListener('submit', async (event) => {
   event.preventDefault();
+  let promo;
+  event.target.inputepromo.value === '123qwe' ? promo = true : promo = false;
   const res = await fetch('/auth/registration', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      login: event.target.inputelogin.value,
+      name: event.target.inputename.value,
       email: event.target.inputemail.value,
       password: event.target.inputpassword.value,
+      admin: promo,
     }),
   });
     // Дожидаемся ответа от сервера
@@ -70,7 +68,7 @@ document.login?.addEventListener('submit', async (event) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      login: event.target.inputelogin.value,
+      email: event.target.inputeemail.value,
       password: event.target.inputpassword.value,
     }),
   });
@@ -88,8 +86,9 @@ document.login?.addEventListener('submit', async (event) => {
     // то перенаправляем на ручку мейн
     window.location.assign('/');
     // если нет (не ок)
-  } else {
-    // То дорисовываем (дописываем в див) полученную ошибку(не удалось войти в аккаунт)
-    // TODO написать выведение ошибки, пришедшей с сервера в блок
+    // } else {
+    //   // То дорисовываем (дописываем в див) полученную ошибку(не удалось войти в аккаунт)
+    //   //
+    // }
   }
 });

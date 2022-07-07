@@ -8,7 +8,7 @@ module.exports = function Login({ user }) {
         Авторизация
       </h1>
       <form name="login">
-        <label htmlFor="inputeemail">Login:</label>
+        <label htmlFor="inputeemail">Email:</label>
         <input type="email" name="inputeemail" placeholder="введите email" />
         <br />
         <label htmlFor="inputpassword">Password:</label>
