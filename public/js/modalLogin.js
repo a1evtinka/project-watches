@@ -41,11 +41,11 @@
 //   });
 
 // Фетч для формы входа (если уже вошли ее нет - поэтому вопрос)
-const button = document.querySelector('#button2');
-button.addEventListener('click', async (event) => {
+const buttonLog = document.querySelector('#button2');
+buttonLog.addEventListener('click', async (event) => {
     event.preventDefault();
+    const form = event.target.closest('form');
     console.log(form.querySelector('#defaultForm-email2').value);
-  const form = event.target.closest('form');
   const res = await fetch('/auth/login', {
     method: 'POST',
     headers: {

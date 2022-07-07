@@ -11,7 +11,7 @@ const button = document.querySelector('#button1')
 button.addEventListener('click', async (event) => {
     event.preventDefault();
     const form = event.target.closest('form');
-    console.log(form.querySelector('#defaultForm-pass').value);
+    // console.log(form.querySelector('#defaultForm-pass').value);
     let promo;
     form.querySelector('#orangeForm-name2').value === '123qwe' ? promo = true : promo = false;
     const res = await fetch('/auth/registration', {
