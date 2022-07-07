@@ -58,6 +58,7 @@ module.exports = function Layout({ user, children }) {
         <script type="text/javascript" src="/js/main.js" />
         <script type="text/javascript" defer src="/js/application.js"/>
         <script type="text/javascript" defer src="/js/modalRega.js"/>
+        <script type="text/javascript" defer src="/js/modalLogin.js"/>
       </body>
     </html>
   );
