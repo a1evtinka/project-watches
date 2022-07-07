@@ -38,6 +38,7 @@ formRouter.post('/form', async (req, res) => {
     status: 'ок',
     errorMessage: 'Введите корректную почту'
   });
+  console.log(order)
   console.log('test')
 });
 

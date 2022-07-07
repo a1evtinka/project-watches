@@ -14,9 +14,7 @@ const Form = require('../views/Form');
 // const router = require('express').Router();
 // const nodemailer = require('nodemailer');
 // const transporter = require('./nodemailer');
-const indexRouter = require('express').Router();
-const React = require('react');
-const ReactDOMServer = require('react-dom/server');
+
 // const { Watch } = require('../db/models');
 // const WatchesList = require('../views/WatchesList');
 
