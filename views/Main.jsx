@@ -32,7 +32,7 @@ module.exports = function Main({ user }) {
                 className="fa fa-play fa-code"
               />
               {' '}
-              Watches From Roman
+              Pavel Egorov Watches
             </a>
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -67,9 +67,9 @@ module.exports = function Main({ user }) {
       <header id="header">
 
         <div className="intro">
+          <Carousel />
           <div className="container">
             <div className="row">
-              {/* <Carousel /> */}
               <div className="intro-text">
                 <h1>Watches</h1>
                 <p>Watch Workshop • Product Design</p>
@@ -424,7 +424,7 @@ module.exports = function Main({ user }) {
                 {/* БУДЕМ ЛИ ДЕЛАТЬ ССЫЛКИ? */}
                 <li><a href="#"><i className="fa fa-facebook" /></a></li>
                 <li><a href="#"><i className="fa fa-twitter" /></a></li>
-                <li><a href="#"><i className="fa fa-github" /></a></li>
+                <li><a href="https://github.com/a1evtinka/project-watches"><i className="fa fa-github" /></a></li>
                 <li><a href="#"><i className="fa fa-codepen" /></a></li>
               </ul>
             </div>

@@ -15,7 +15,7 @@ module.exports = function Carousel() {
             </ol>
             <div className="carousel-inner">
               <div className="item active">
-                <img src="/img/portfolio/1.jpeg" alt="First slide" />
+                <img src="/img/test12.jpg" alt="First slide" />
                 <div className="carousel-caption">
                   <h3>
                     First slide
@@ -28,7 +28,7 @@ module.exports = function Carousel() {
                 </div>
               </div>
               <div className="item">
-                <img src="/img/portfolio/1.jpeg" alt="Second slide" />
+                <img src="/img/test12.jpg" alt="Second slide" />
                 <div className="carousel-caption">
                   <h3>
                     Second slide
@@ -40,7 +40,7 @@ module.exports = function Carousel() {
                 </div>
               </div>
               <div className="item">
-                <img src="/img/portfolio/1.jpeg" alt="Third slide" />
+                <img src="/img/test12.jpg" alt="Third slide" />
                 <div className="carousel-caption">
                   <h3>
                     Third slide
