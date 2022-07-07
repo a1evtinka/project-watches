@@ -1,6 +1,7 @@
 const authRouter = require('express').Router();
 const bcrypt = require('bcrypt');
 const { User, Watch } = require('../db/models');
+const transporter = require('./nodemailer');
 // const { Entry } = require('../db/models');
 
 // Ручка метода пост для получения с фетча введенных данных из формы регистрации
@@ -39,6 +40,29 @@ authRouter.post('/registration', async (req, res) => {
       password: hash,
       admin,
     });
+
+    // отправка письма start
+    console.log('мыло пользователя', email);
+
+    const mail = {
+      from: 'Yashwant Chavan <pewatches2022@gmail.com>',
+      to: email,
+      subject: 'Send Email Using Node.js',
+      text: 'Node.js New world for me',
+      html: '<b>Node.js New world for me</b>',
+    };
+
+    transporter.sendMail(mail, (error, response) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(`Message sent: ${response.message}`);
+      }
+
+      transporter.close();
+    });
+    // отправка письма finish
+
     // Отправляем на фронт, что все гуд
     res.json({ status: 'ok' });
     // Если произошла ошибка, то от падения сервера спасает этот кетч
@@ -46,6 +70,7 @@ authRouter.post('/registration', async (req, res) => {
     res.status(500).json({ errorMessage: err.message });
   }
 });
+
 // Ручка метода пост для получения с фетча введенных данных из формы входа(логина)
 authRouter.post('/login', async (req, res) => {
   // оборачиваем в трай-кетч
