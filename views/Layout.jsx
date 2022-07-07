@@ -1,5 +1,7 @@
 const React = require('react');
-// const NavMenu = require('./NavMenu');
+
+// const NavMenu = require('./navMenu');
+
 
 module.exports = function Layout({ user, children }) {
   return (
@@ -43,6 +45,7 @@ module.exports = function Layout({ user, children }) {
         {/* <script type="text/javascript" src="js/modernizr.custom.js"></script> */}
 
       </head>
+
       <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
         {children}
         <script type="text/javascript" src="/js/jquery.1.11.1.js" />
