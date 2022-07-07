@@ -1,7 +1,7 @@
 const React = require('react');
 // const Watch = require('./Watch');
 
-module.exports = function WatchCollection({ watch }) {
+module.exports = function WatchCollection({ user, watch }) {
   return (
     <div id="portfolio">
       <div className="container">
@@ -29,11 +29,11 @@ module.exports = function WatchCollection({ watch }) {
                 <div className="portfolio-item">
                   <div className="hover-bg">
                     <div>
-                    <a
+                      <a
                     // БОЛЬШАЯ КАРТИНКА>
-                      href={`/img/portfolio/${el.image}`}
-                      title={`Модель:${el.title}
-                       Категория: ${el.category}
+                        href={`/img/portfolio/${el.image}`}
+                        title={`Модель:${el.title}
+                      Категория: ${el.category}
                       Материал корпуса: ${el.case}
                       Материал ремешка: ${el.strap}
                       Стекло: ${el.glass}
@@ -41,28 +41,58 @@ module.exports = function WatchCollection({ watch }) {
                       Водостойкость: ${el.water}
                       Описание:${el.description}
                       Цена:${el.price} ₽`}
-                      data-lightbox-gallery="gallery1"
-                    >
-                      <div className="hover-text">
-                        {/* НАПИСАТЬ МОДЕЛИ ЧАСОВ В H4 */}
-                        <h4>{`${el.title}`}</h4>
-                        <h4>{`${el.price}`}₽</h4>
-                      </div>
-                      {/* МАЛЕКНЬКАЯ КАРТИНКА */}
-                      <img
-                        src={`/img/portfolio/${el.image}`}
-                        className="img-responsive"
-                        alt={`${el.title}`}
-                      />
-                      <span>{`${el.category}`}</span>
-                    </a>
+                        data-lightbox-gallery="gallery1"
+                      >
+                        <div className="hover-text">
+                          {/* НАПИСАТЬ МОДЕЛИ ЧАСОВ В H4 */}
+                          <h4>{`${el.title}`}</h4>
+                          <h4>
+                            {`${el.price}`}
+                            ₽
+                          </h4>
+                        </div>
+                        {/* МАЛЕКНЬКАЯ КАРТИНКА */}
+                        <img
+                          src={`/img/portfolio/${el.image}`}
+                          className="img-responsive"
+                          alt={`${el.title}`}
+                        />
+                        <span>{`${el.category}`}</span>
+                      </a>
                     </div>
                   </div>
                 </div>
-                <ul className="entry-links">
-                   {/* <li className="entry-link"><a href={`update/entry/${entry.id}`}>edit</a></li> */}
-                  <li className="entry-link"><a delid={`${el.id}`} id="delete" href={`/${el.id}`}>delete</a></li>
-                </ul>
+                {
+                  (user && user.admin)
+                    ? (
+                      <ul
+                        className="cat"
+                        style={{
+                          display: 'flex', justifyContent: 'space-around', fontSize: '15px', letterSpacing: '1px',
+                        }}
+                      >
+                        <li className="page-scroll">
+                          <a
+                            className="page-scroll"
+                            href={`watch/${el.id}`}
+                          >
+                            edit
+                          </a>
+                        </li>
+                        <li className="page-scroll">
+                          <a
+                            className="page-scroll"
+                            delid={`${el.id}`}
+                            id="delete"
+                            href={`/${el.id}`}
+                          >
+                            delete
+                          </a>
+                        </li>
+                      </ul>
+                    )
+                    : <div />
+                }
               </div>
             ))}
             {/* <div className="col-sm-6 col-md-3 col-lg-3 product"> */}

@@ -15,7 +15,7 @@ const isAuth = require('../middlewares/isAuth');
 // const indexRouter = require('../routers/views/indexRouter');
 const viewsRouter = require('../routes/viewsRouter');
 const authRouter = require('../routes/authRouter');
-const indexRouter = require('../routes/index');
+// const indexRouter = require('../routes/index');
 
 // экспортим конфиг с включенными мидлварками
 module.exports = function configApp(app) {

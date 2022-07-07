@@ -2,7 +2,6 @@ const authRouter = require('express').Router();
 const bcrypt = require('bcrypt');
 const { User, Watch } = require('../db/models');
 const transporter = require('./nodemailer');
-// const { Entry } = require('../db/models');
 
 // Ручка метода пост для получения с фетча введенных данных из формы регистрации
 authRouter.post('/registration', async (req, res) => {
@@ -113,8 +112,8 @@ authRouter.get('/logout', async (req, res) => {
   res.redirect('/');
 });
 
-authRouter.delete('/:id', async (req, res) => {
-  console.log(req.params.id);
-  await Watch.destroy({ where: { id: req.params.id } });
-});
+// authRouter.delete('/:id', async (req, res) => {
+//   console.log(req.params.id);
+//   await Watch.destroy({ where: { id: req.params.id } });
+// });
 module.exports = authRouter;
