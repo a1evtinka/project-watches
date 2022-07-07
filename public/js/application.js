@@ -1,3 +1,26 @@
+
+
+document.orderForm.addEventListener('submit', async (event) => { 
+    event.preventDefault();
+    console.log(event.target)
+    const res = await fetch('/form', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: event.target.inputename.value,
+        email: event.target.inputemail.value,
+        phone: event.target.inputephone.value,
+        sketch: event.target.files.value,
+        watch_id: event.target.option.value
+      }),
+  })
+  const response = await res.json()
+  console.log(response)
+  })
+
+// module.exports = doupload
 // const bootstrap = require('bootstrap');
 //
 // const myCarousel = document.querySelector('#myCarousel');
