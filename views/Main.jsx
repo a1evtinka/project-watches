@@ -1,11 +1,16 @@
 const React = require('react');
+const Carousel = require('./Carousel');
 const Layout = require('./Layout');
+const ModalRega = require('./ModalRega');
+const ModalLogin = require('./ModalLogin');
 const Form = require('./Form');
 const WatchCollection = require('./WatchCollection');
 
 module.exports = function Main({ user, watch }) {
   return (
     <Layout user={user}>
+      <ModalRega />
+      <ModalLogin />
       <nav id="menu" className="navbar navbar-default navbar-fixed-top">
         <div className="container">
           <div className="navbar-header">
@@ -29,7 +34,7 @@ module.exports = function Main({ user, watch }) {
                 className="fa fa-play fa-code"
               />
               {' '}
-              Watches From Roman
+              Pavel Egorov Watches
             </a>
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -40,14 +45,14 @@ module.exports = function Main({ user, watch }) {
               <li><a href="#contact" className="page-scroll">Order</a></li>
               <li>
                 {
-                  (user && user.name) ? <a className="page-scroll" href="/">{user.name}</a> : <a className="page-scroll" href="/registration">Registration</a>
+                  (user && user.name) || <a href="" className="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm" className="page-scroll">Registration</a>
                 }
               </li>
               <li>
                 {
                   user
                     ? <a className="page-scroll" href="/auth/logout">Logout</a>
-                    : <a className="page-scroll" href="/login">Login</a>
+                    : <a href="" className="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm2" className="page-scroll">Login</a>
                 }
               </li>
               <li>
@@ -62,8 +67,10 @@ module.exports = function Main({ user, watch }) {
         </div>
       </nav>
       <header id="header">
+
         <div className="intro">
-          <div className="container">
+          <Carousel />
+          {/* <div className="container">
             <div className="row">
               <div className="intro-text">
                 <h1>Watches</h1>
@@ -71,7 +78,7 @@ module.exports = function Main({ user, watch }) {
                 <a href="#about" className="btn btn-custom btn-lg page-scroll">Learn More</a>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </header>
       <div id="about">
@@ -146,6 +153,8 @@ module.exports = function Main({ user, watch }) {
               </div>
               <div id="success" />
               <button type="submit" className="btn btn-default btn-lg">Make an order</button>
+            </form>
+            <ModalRega />
             </form> */}
             <Form />
             <div className="social">
