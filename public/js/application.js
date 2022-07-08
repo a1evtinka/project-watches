@@ -114,16 +114,24 @@ document.querySelector('#addwatchesbutton').addEventListener('click', async (eve
       title: addWatchesForm.querySelector('#title').value,
       image: addWatchesForm.querySelector('#image').value,
       category: addWatchesForm.querySelector('#category').value,
-      case: addWatchesForm.querySelector('#case').value,
+      case: addWatchesForm.querySelector('#case1').value,
       strap: addWatchesForm.querySelector('#strap').value,
+      glass: addWatchesForm.querySelector('#glass').value,
       mechanism: addWatchesForm.querySelector('#mechanism').value,
       water: addWatchesForm.querySelector('#water').value,
       description: addWatchesForm.querySelector('#description').value,
       price: addWatchesForm.querySelector('#price').value,
     }),
   });
+  // console.log(res)
   const result = await res.json();
-  console.log('фетч ответ от сервера', result);
+  console.log(result)
+  // console.log('фетч ответ от сервера', result);
+  if (result) {
+    // то перенаправляем на ручку мейн
+    console.log('zopa')
+    window.location.href = '/';
+  }
 });
 
 const del = document.querySelectorAll('#delete');

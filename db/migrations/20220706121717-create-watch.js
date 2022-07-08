@@ -21,7 +21,7 @@ module.exports = {
       },
       case: {
         type: Sequelize.TEXT,
-        allowNull: false,
+        allowNull: true,
       },
       strap: {
         type: Sequelize.TEXT,

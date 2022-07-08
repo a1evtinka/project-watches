@@ -42,8 +42,8 @@ module.exports = function ModalWatches() {
 
               <div className="md-form mb-4">
                 <i className="fas fa-lock prefix grey-text" />
-                <input type="text" id="case" className="form-control validate" />
-                <label data-error="wrong" data-success="right" htmlFor="defaultForm-pass" name="case">Case</label>
+                <input type="text" id="case1" className="form-control validate" />
+                <label data-error="wrong" data-success="right" htmlFor="defaultForm-pass" name="case1">Case</label>
               </div>
 
               <div className="md-form mb-5">

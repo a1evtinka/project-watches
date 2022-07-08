@@ -24,7 +24,7 @@ addWatchesRouter.post('/', async (req, res) => {
     title,
     image,
     category,
-    case,
+    case1,
     strap,
     glass,
     mechanism,
@@ -37,7 +37,7 @@ addWatchesRouter.post('/', async (req, res) => {
     title,
     image,
     category,
-    case,
+    case1,
     strap,
     glass,
     mechanism,
@@ -48,8 +48,8 @@ addWatchesRouter.post('/', async (req, res) => {
 
   res.json({
     status: 'ок',
-    errorMessage: 'Произошла ошибка'
   });
+
 });
 //
 module.exports = addWatchesRouter;
