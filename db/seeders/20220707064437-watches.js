@@ -3,7 +3,7 @@ module.exports = {
     await queryInterface.bulkInsert('Watches', [{
       title: 'Nikita',
       image: '100.jpg',
-      category: 'Мужские',
+      category: 'man',
       case: 'сталь',
       strap: 'натуральная кожа',
       glass: 'минеральное',
@@ -17,7 +17,7 @@ module.exports = {
     {
       title: 'Polina',
       image: '102.jpg',
-      category: 'женские',
+      category: 'woman',
       case: 'сталь',
       strap: 'натуральная кожа',
       glass: 'минеральное',
@@ -31,7 +31,7 @@ module.exports = {
     {
       title: 'Gosha',
       image: '104.jpg',
-      category: 'Мужские',
+      category: 'man',
       case: 'сталь',
       strap: 'натуральная кожа',
       glass: 'минеральное',
@@ -45,7 +45,7 @@ module.exports = {
     {
       title: 'Kadzhik',
       image: '105.jpg',
-      category: 'Мужские',
+      category: 'man',
       case: 'сталь',
       strap: 'натуральная кожа',
       glass: 'минеральное',
@@ -59,7 +59,7 @@ module.exports = {
     {
       title: 'Baga',
       image: '106.jpg',
-      category: 'Унисекс',
+      category: 'unisex',
       case: 'сталь',
       strap: 'натуральная кожа',
       glass: 'минеральное',
@@ -73,7 +73,7 @@ module.exports = {
     {
       title: 'Leha',
       image: '107.jpg',
-      category: 'Унисекс',
+      category: 'man',
       case: 'сталь',
       strap: 'натуральная кожа',
       glass: 'минеральное',
@@ -87,7 +87,7 @@ module.exports = {
     {
       title: 'Max',
       image: '108.jpg',
-      category: 'Унисекс',
+      category: 'unisex',
       case: 'сталь',
       strap: 'натуральная кожа',
       glass: 'минеральное',
@@ -101,7 +101,7 @@ module.exports = {
     {
       title: 'Pavel',
       image: '109.jpg',
-      category: 'Унисекс',
+      category: 'unisex',
       case: 'сталь',
       strap: 'натуральная кожа',
       glass: 'минеральное',
