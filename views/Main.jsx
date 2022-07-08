@@ -3,6 +3,7 @@ const Carousel = require('./Carousel');
 const Layout = require('./Layout');
 const ModalRega = require('./ModalRega');
 const ModalLogin = require('./ModalLogin');
+const Form = require('./Form');
 const WatchCollection = require('./WatchCollection');
 
 module.exports = function Main({ user, watch }) {
@@ -104,7 +105,7 @@ module.exports = function Main({ user, watch }) {
           </div>
         </div>
       </div>
-      <WatchCollection watch={watch} />
+      <WatchCollection user={user} watch={watch} />
       <div id="contact" className="text-center">
         <div className="container">
           <div className="section-title center">
@@ -112,7 +113,7 @@ module.exports = function Main({ user, watch }) {
             <hr />
           </div>
           <div className="col-md-8 col-md-offset-2">
-            <form name="sentMessage" id="contactForm" noValidate>
+            {/* <form name="sentMessage" id="contactForm" noValidate>
               <div className="row">
                 <div className="col-md-6">
                   <div className="form-group">
@@ -154,6 +155,8 @@ module.exports = function Main({ user, watch }) {
               <button type="submit" className="btn btn-default btn-lg">Make an order</button>
             </form>
             <ModalRega />
+            </form> */}
+            <Form />
             <div className="social">
               <ul>
                 {/* БУДЕМ ЛИ ДЕЛАТЬ ССЫЛКИ? */}

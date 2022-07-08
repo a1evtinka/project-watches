@@ -449,15 +449,12 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 }
 }
 
-/* для слайдера*/
 .main-text
 {
 position: absolute;
 top: 50px;
 width: 96.66666666666666%;
 color: #FFF;
-}
-
 #funny {
 	width: 100%;
 	padding: 0;
@@ -495,4 +492,8 @@ color: #FFF;
 
 .table {
 	margin-top: 220pt;
+ }
+
+h4 {
+	margin: 0;
 }

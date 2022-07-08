@@ -44,10 +44,10 @@ module.exports = function Form() {
               <p>Либо загрузите ваш эскиз</p>
 
               <label>Файл</label>
-              <input type="file" name="files" multiple />
+              <input type="file" name="files" className=" btn-secondary btn-lg" multiple />
 
               <div className="text-center mt-5">
-                <button type="submit" className="btn btn-secondary">Отправить</button>
+                <button type="submit" className="btn btn-secondary btn-default btn-lg">Отправить</button>
               </div>
 
             </form>

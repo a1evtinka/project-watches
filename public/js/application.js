@@ -71,16 +71,48 @@
 //   }
 // });
 
+// document.orderForm.addEventListener('submit', async (event) => {
+//     event.preventDefault();
+//     console.log(event.target)
+//     const res = await fetch('/form', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({
+//         name: event.target.inputename.value,
+//         email: event.target.inputemail.value,
+//         phone: event.target.inputephone.value,
+//         sketch: event.target.files.value,
+//         watch_id: event.target.option.value
+//       }),
+//   })
+//   const response = await res.json()
+//   console.log(response)
+//   })
+
+
+// module.exports = doupload
+// const bootstrap = require('bootstrap');
+//
+// const myCarousel = document.querySelector('#myCarousel');
+// const carousel = new bootstrap.Carousel(myCarousel, {
+//   interval: 2000,
+//   wrap: false,
+// });
+
 
 const del = document.querySelectorAll('#delete');
-console.log(del);
 del.forEach((el) => el.addEventListener('click', async (event) => {
   event.preventDefault();
   const id = event.target.getAttribute('delid');
   // console.log(id);
-  await fetch(`/${id}`, {
+  const res = await fetch(`/${id}`, {
     method: 'DELETE',
   });
-  event.target.closest('.col-sm-6').remove();
+  const result = await res.json();
+  if (result.status === 'ok') {
+    event.target.closest('.col-sm-6').remove();
+  }
   // event.target.parentElement.parentElement.parentElement.remove();
 }));
