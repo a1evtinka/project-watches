@@ -47,13 +47,13 @@ const ordersRouter = require('./routes/orders');
 const formRouter = require('./routes/formRouter');
 
 // app.use('/', indexRouter);
-app.use('/admin_panel', ordersRouter);
-app.use('/form', formRouter)
+// app.use('/admin_panel', ordersRouter);
+// app.use('/form', formRouter)
 
 //роутер для загрузки изображений
-const uploadRouter = require('./routes/uploadRouter');
+// const uploadRouter = require('./routes/uploadRouter');
 
-app.use('/', uploadRouter);
+// app.use('/', uploadRouter);
 
 app.use((req, res, next) => {
   const error = createError(404, 'Запрашиваемой страницы не существует на сервере.');

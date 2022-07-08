@@ -98,7 +98,7 @@ module.exports = function Main({ user, watch }) {
           </div>
         </div>
       </div>
-      <WatchCollection watch={watch} />
+      <WatchCollection user={user} watch={watch} />
       <div id="contact" className="text-center">
         <div className="container">
           <div className="section-title center">
@@ -153,7 +153,7 @@ module.exports = function Main({ user, watch }) {
                 {/* БУДЕМ ЛИ ДЕЛАТЬ ССЫЛКИ? */}
                 <li><a href="#"><i className="fa fa-facebook" /></a></li>
                 <li><a href="#"><i className="fa fa-twitter" /></a></li>
-                <li><a href="#"><i className="fa fa-github" /></a></li>
+                <li><a href="https://github.com/a1evtinka/project-watches"><i className="fa fa-github" /></a></li>
                 <li><a href="#"><i className="fa fa-codepen" /></a></li>
               </ul>
             </div>

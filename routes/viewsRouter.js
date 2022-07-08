@@ -18,6 +18,16 @@ viewsRouter.get('/', async (req, res) => {
   res.write('<!doctype html>');
   res.end(html);
 });
+
+viewsRouter.delete('/:id', async (req, res) => {
+  if (res.locals.user?.admin) {
+    await Watch.destroy({ where: { id: req.params.id } });
+    res.json({ status: 'ok' });
+  } else {
+    res.redirect('/');
+  }
+});
+
 viewsRouter.get('/registration', (req, res) => {
   const regform = React.createElement(Registration);
   const html = ReactDOMServer.renderToStaticMarkup(regform);
@@ -47,6 +57,8 @@ viewsRouter.get('/admin_panel', async (req, res) => {
     res.redirect('/');
   }
 });
+// ДОБАВИТЬ ЛОГИКУ ТОГО, ЧТО ТОЛЬКО У АДМИНА ЕСТЬ ВОЗМОЖНОСТЬ УДАЛЯТЬ,ИЗМЕНЯТЬ И ДОБАВЛЯТЬ ЭЛЕМЕНТЫ
+// if (res.locals.user?.admin) {
 
 // viewsRouter.get('/', async (req, res) => {
 //   let watch;

@@ -448,3 +448,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	margin-bottom: 20px;
 }
 }
+
+h4 {
+	margin: 0;
+}

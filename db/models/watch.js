@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({ Order }) {
-      Watch.Order = Watch.hasMany(Order, { foreignKey: 'watch_id' });
+      Watch.Order = Watch.hasMany(Order, { foreignKey: 'watch_id' }, { onDelete: 'CASCADE' });
     }
   }
   Watch.init({

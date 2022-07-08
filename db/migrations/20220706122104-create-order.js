@@ -12,6 +12,7 @@ module.exports = {
         references: {
           model: 'Watches',
           key: 'id',
+          onDelete: 'CASCADE',
         },
       },
       user_id: {
