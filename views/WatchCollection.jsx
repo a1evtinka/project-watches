@@ -14,9 +14,9 @@ module.exports = function WatchCollection({ user, watch }) {
             <li>
               <ol className="type">
                 <li><a href="#" data-filter="*" className="active">All</a></li>
-                <li><a href="#" data-filter=".web">Web Design</a></li>
-                <li><a href="#" data-filter=".photography">Photography</a></li>
-                <li><a href="#" data-filter=".product">Product Design</a></li>
+                <li><a href="#" data-filter=".man">Men</a></li>
+                <li><a href="#" data-filter=".woman">Women</a></li>
+                <li><a href="#" data-filter=".unisex">Unisex</a></li>
               </ol>
             </li>
           </ul>
@@ -25,7 +25,7 @@ module.exports = function WatchCollection({ user, watch }) {
         <div className="row">
           <div className="portfolio-items">
             {watch.map((el) => (
-              <div className="col-sm-6 col-md-3 col-lg-3 web">
+              <div className={`col-sm-6 col-md-3 col-lg-3 web ${el.category}`}>
                 <div className="portfolio-item">
                   <div className="hover-bg">
                     <div>

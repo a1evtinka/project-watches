@@ -198,6 +198,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54d0dd', end
 }
 #about .about-text {
 	margin-left: 10px;
+	margin-top: 80px;
 }
 #about img {
 	float: right;
