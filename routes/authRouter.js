@@ -44,11 +44,11 @@ authRouter.post('/registration', async (req, res) => {
     //console.log('мыло пользователя', email);
 
     const mail = {
-      from: 'Yashwant Chavan <pewatches2022@gmail.com>',
+      from: 'Pavel Egorov <pewatches2022@gmail.com>',
       to: email,
-      subject: 'Send Email Using Node.js',
-      text: 'Node.js New world for me',
-      html: '<b>Node.js New world for me</b>',
+      subject: `Dear ${name}! You are a member of PE Watches now!`,
+      text: `Dear ${name}!`,
+      html: '<b>Thank you for registration on Pavel Egorov Watches!</b>',
     };
 
     transporter.sendMail(mail, (error, response) => {

@@ -1,11 +1,16 @@
 const React = require('react');
+const Carousel = require('./Carousel');
 const Layout = require('./Layout');
+const ModalRega = require('./ModalRega');
+const ModalLogin = require('./ModalLogin');
 const Form = require('./Form');
 const WatchCollection = require('./WatchCollection');
 
 module.exports = function Main({ user, watch }) {
   return (
     <Layout user={user}>
+      <ModalRega />
+      <ModalLogin />
       <nav id="menu" className="navbar navbar-default navbar-fixed-top">
         <div className="container">
           <div className="navbar-header">
@@ -29,7 +34,7 @@ module.exports = function Main({ user, watch }) {
                 className="fa fa-play fa-code"
               />
               {' '}
-              Watches From Roman
+              Pavel Egorov Watches
             </a>
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -40,14 +45,14 @@ module.exports = function Main({ user, watch }) {
               <li><a href="#contact" className="page-scroll">Order</a></li>
               <li>
                 {
-                  (user && user.name) ? <a className="page-scroll" href="/">{user.name}</a> : <a className="page-scroll" href="/registration">Registration</a>
+                  (user && user.name) ? <a href="/" className="page-scroll">{user.name}</a> : <a href="" className="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm" className="page-scroll">Registration</a>
                 }
               </li>
               <li>
                 {
                   user
                     ? <a className="page-scroll" href="/auth/logout">Logout</a>
-                    : <a className="page-scroll" href="/login">Login</a>
+                    : <a href="" className="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm2" className="page-scroll">Login</a>
                 }
               </li>
               <li>
@@ -62,8 +67,10 @@ module.exports = function Main({ user, watch }) {
         </div>
       </nav>
       <header id="header">
+
         <div className="intro">
-          <div className="container">
+          <Carousel />
+          {/* <div className="container">
             <div className="row">
               <div className="intro-text">
                 <h1>Watches</h1>
@@ -71,7 +78,7 @@ module.exports = function Main({ user, watch }) {
                 <a href="#about" className="btn btn-custom btn-lg page-scroll">Learn More</a>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </header>
       <div id="about">
@@ -83,14 +90,14 @@ module.exports = function Main({ user, watch }) {
           <div className="row">
             <div className="col-xs-12 col-md-6">
               <img
-                src="/img/bartender.png"
+                src="/img/pavelE.jpg"
                 className="img-responsive"
                 alt=""
               />
             </div>
             <div className="col-xs-12 col-md-6">
               <div className="about-text">
-                <p>Меня зовут Роман! Рад знакомству. Я очень люблю когда все делается в назначенный срок, поэтому начал производство часов ручной работы</p>
+                <p>Меня зовут Павел! Рад знакомству. Я очень люблю когда все делается в назначенный срок, поэтому начал производство часов ручной работы</p>
                 <p>Моя главная особенность - это стиль. Все часы представленные моей мастерской - это единственный экземпляр.</p>
                 <a href="#portfolio" className="btn btn-default btn-lg page-scroll">Watches Collection</a>
               </div>
@@ -146,15 +153,17 @@ module.exports = function Main({ user, watch }) {
               </div>
               <div id="success" />
               <button type="submit" className="btn btn-default btn-lg">Make an order</button>
+            </form>
+            <ModalRega />
             </form> */}
             <Form />
             <div className="social">
               <ul>
                 {/* БУДЕМ ЛИ ДЕЛАТЬ ССЫЛКИ? */}
-                <li><a href="#"><i className="fa fa-facebook" /></a></li>
-                <li><a href="#"><i className="fa fa-twitter" /></a></li>
+                <li><a href="#10"><i className="fa fa-facebook" /></a></li>
+                <li><a href="#11"><i className="fa fa-twitter" /></a></li>
                 <li><a href="https://github.com/a1evtinka/project-watches"><i className="fa fa-github" /></a></li>
-                <li><a href="#"><i className="fa fa-codepen" /></a></li>
+                <li><a href="#12"><i className="fa fa-codepen" /></a></li>
               </ul>
             </div>
           </div>
