@@ -3,6 +3,7 @@ const Carousel = require('./Carousel');
 const Layout = require('./Layout');
 const ModalRega = require('./ModalRega');
 const ModalLogin = require('./ModalLogin');
+const ModalOrder = require('./ModalOrder');
 const Form = require('./Form');
 const WatchCollection = require('./WatchCollection');
 
@@ -11,6 +12,7 @@ module.exports = function Main({ user, watch }) {
     <Layout user={user}>
       <ModalRega />
       <ModalLogin />
+      <ModalOrder />
       <nav id="menu" className="navbar navbar-default navbar-fixed-top">
         <div className="container">
           <div className="navbar-header">
@@ -106,6 +108,7 @@ module.exports = function Main({ user, watch }) {
         </div>
       </div>
       <WatchCollection user={user} watch={watch} />
+     
       <div id="contact" className="text-center">
         <div className="container">
           <div className="section-title center">
@@ -113,6 +116,7 @@ module.exports = function Main({ user, watch }) {
             <hr />
           </div>
           <div className="col-md-8 col-md-offset-2">
+            
             {/* <form name="sentMessage" id="contactForm" noValidate>
               <div className="row">
                 <div className="col-md-6">
