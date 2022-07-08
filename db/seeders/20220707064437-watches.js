@@ -2,7 +2,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Watches', [{
       title: 'Aviator Brown',
-      image: 'https://cs2.livemaster.ru/storage/de/66/b34bb848f6f6e3beb589f7611a7a.jpg',
+      image: '01-large.jpg',
       category: 'унисекс',
       case: 'сталь',
       strap: 'натуральная кожа',
