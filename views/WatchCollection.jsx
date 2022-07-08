@@ -1,5 +1,7 @@
 const React = require('react');
 // const Watch = require('./Watch');
+const EditWatch = require('./EditWatch');
+const Layout = require('./Layout');
 
 module.exports = function WatchCollection({ user, watch }) {
   return (
@@ -31,8 +33,8 @@ module.exports = function WatchCollection({ user, watch }) {
                     <div>
                       <a
                     // БОЛЬШАЯ КАРТИНКА>
-                        href={`/img/portfolio/${el.image}`}
-                        title={`Модель:${el.title}
+                          href={`/img/portfolio/${el.image}`}
+                          title={`Модель:${el.title}
                       Категория: ${el.category}
                       Материал корпуса: ${el.case}
                       Материал ремешка: ${el.strap}
@@ -41,28 +43,28 @@ module.exports = function WatchCollection({ user, watch }) {
                       Водостойкость: ${el.water}
                       Описание:${el.description}
                       Цена:${el.price} ₽`}
-                        data-lightbox-gallery="gallery1"
-                      >
-                        <div className="hover-text">
-                          {/* НАПИСАТЬ МОДЕЛИ ЧАСОВ В H4 */}
-                          <h4>{`${el.title}`}</h4>
-                          <h4>
-                            {`${el.price}`}
-                            ₽
-                          </h4>
-                        </div>
-                        {/* МАЛЕКНЬКАЯ КАРТИНКА */}
-                        <img
-                          src={`/img/portfolio/${el.image}`}
-                          className="img-responsive"
-                          alt={`${el.title}`}
-                        />
-                        <span>{`${el.category}`}</span>
-                      </a>
+                          data-lightbox-gallery="gallery1"
+                        >
+                          <div className="hover-text">
+                            {/* НАПИСАТЬ МОДЕЛИ ЧАСОВ В H4 */}
+                            <h4>{`${el.title}`}</h4>
+                            <h4>
+                              {`${el.price}`}
+                              ₽
+                            </h4>
+                          </div>
+                          {/* МАЛЕКНЬКАЯ КАРТИНКА */}
+                          <img
+                            src={`/img/portfolio/${el.image}`}
+                            className="img-responsive"
+                            alt={`${el.title}`}
+                          />
+                          <span>{`${el.category}`}</span>
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </div>
-                {
+                  {
                   (user && user.admin)
                     ? (
                       <ul
@@ -73,15 +75,19 @@ module.exports = function WatchCollection({ user, watch }) {
                       >
                         <li className="page-scroll">
                           <a
-                            className="page-scroll"
-                            href={`watch/${el.id}`}
+                            href={`/edit/${el.id}`}
+                            editid={`${el.id}`}
+                            className="btn btn-default btn-rounded mb-4 classMy"
+                            data-toggle="modal"
+                            data-target="#modalEditWatch"
+                            id="update"
                           >
-                            edit
+                            Edit
                           </a>
                         </li>
                         <li className="page-scroll">
                           <a
-                            className="page-scroll"
+                            className="btn btn-default btn-rounded mb-4"
                             delid={`${el.id}`}
                             id="delete"
                             href={`/${el.id}`}
@@ -93,233 +99,234 @@ module.exports = function WatchCollection({ user, watch }) {
                     )
                     : <div />
                 }
-              </div>
-            ))}
-            {/* <div className="col-sm-6 col-md-3 col-lg-3 product"> */}
-            {/*   <div className="portfolio-item"> */}
-            {/*     <div className="hover-bg"> */}
-            {/*       <a */}
-            {/*         href="/img/portfolio/02-large.jpg" */}
-            {/*         title="Project Title" */}
-            {/*         data-lightbox-gallery="gallery1" */}
-            {/*       > */}
-            {/*         <div className="hover-text"> */}
-            {/*           <h4>Project Title</h4> */}
-            {/*         </div> */}
-            {/*         <img */}
-            {/*           src="/img/portfolio/02-small.jpg" */}
-            {/*           className="img-responsive" */}
-            {/*           alt="Project Title" */}
-            {/*         /> */}
-            {/*       </a> */}
-            {/*     </div> */}
-            {/*   </div> */}
-            {/* </div> */}
-            {/* <div className="col-sm-6 col-md-3 col-lg-3 web"> */}
-            {/*   <div className="portfolio-item"> */}
-            {/*     <div className="hover-bg"> */}
-            {/*       <a */}
-            {/*         href="/img/portfolio/03-large.jpg" */}
-            {/*         title="Project Title" */}
-            {/*         data-lightbox-gallery="gallery1" */}
-            {/*       > */}
-            {/*         <div className="hover-text"> */}
-            {/*           <h4>Project Title</h4> */}
-            {/*         </div> */}
-            {/*         <img */}
-            {/*           src="/img/portfolio/03-small.jpg" */}
-            {/*           className="img-responsive" */}
-            {/*           alt="Project Title" */}
-            {/*         /> */}
-            {/*       </a> */}
-            {/*     </div> */}
-            {/*   </div> */}
-            {/* </div> */}
-            {/* <div className="col-sm-6 col-md-3 col-lg-3 web"> */}
-            {/*   <div className="portfolio-item"> */}
-            {/*     <div className="hover-bg"> */}
-            {/*       <a */}
-            {/*         href="/img/portfolio/04-large.jpg" */}
-            {/*         title="Project Title" */}
-            {/*         data-lightbox-gallery="gallery1" */}
-            {/*       > */}
-            {/*         <div className="hover-text"> */}
-            {/*           <h4>Project Title</h4> */}
-            {/*         </div> */}
-            {/*         <img */}
-            {/*           src="/img/portfolio/04-small.jpg" */}
-            {/*           className="img-responsive" */}
-            {/*           alt="Project Title" */}
-            {/*         /> */}
-            {/*       </a> */}
-            {/*     </div> */}
-            {/*   </div> */}
-            {/* </div> */}
-            {/* <div className="col-sm-6 col-md-3 col-lg-3 product"> */}
-            {/*   <div className="portfolio-item"> */}
-            {/*     <div className="hover-bg"> */}
-            {/*       <a */}
-            {/*         href="/img/portfolio/05-large.jpg" */}
-            {/*         title="Project Title" */}
-            {/*         data-lightbox-gallery="gallery1" */}
-            {/*       > */}
-            {/*         <div className="hover-text"> */}
-            {/*           <h4>Project Title</h4> */}
-            {/*         </div> */}
-            {/*         <img */}
-            {/*           src="/img/portfolio/05-small.jpg" */}
-            {/*           className="img-responsive" */}
-            {/*           alt="Project Title" */}
-            {/*         /> */}
-            {/*       </a> */}
-            {/*     </div> */}
-            {/*   </div> */}
-            {/* </div> */}
-            {/* <div className="col-sm-6 col-md-3 col-lg-3 photography"> */}
-            {/*   <div className="portfolio-item"> */}
-            {/*     <div className="hover-bg"> */}
-            {/*       <a */}
-            {/*         href="/img/portfolio/06-large.jpg" */}
-            {/*         title="Project Title" */}
-            {/*         data-lightbox-gallery="gallery1" */}
-            {/*       > */}
-            {/*         <div className="hover-text"> */}
-            {/*           <h4>Project Title</h4> */}
-            {/*         </div> */}
-            {/*         <img */}
-            {/*           src="/img/portfolio/06-small.jpg" */}
-            {/*           className="img-responsive" */}
-            {/*           alt="Project Title" */}
-            {/*         /> */}
-            {/*       </a> */}
-            {/*     </div> */}
-            {/*   </div> */}
-            {/* </div> */}
-            {/* <div className="col-sm-6 col-md-3 col-lg-3 photography"> */}
-            {/*   <div className="portfolio-item"> */}
-            {/*     <div className="hover-bg"> */}
-            {/*       <a */}
-            {/*         href="/img/portfolio/07-large.jpg" */}
-            {/*         title="Project Title" */}
-            {/*         data-lightbox-gallery="gallery1" */}
-            {/*       > */}
-            {/*         <div className="hover-text"> */}
-            {/*           <h4>Project Title</h4> */}
-            {/*         </div> */}
-            {/*         <img */}
-            {/*           src="/img/portfolio/07-small.jpg" */}
-            {/*           className="img-responsive" */}
-            {/*           alt="Project Title" */}
-            {/*         /> */}
-            {/*       </a> */}
-            {/*     </div> */}
-            {/*   </div> */}
-            {/* </div> */}
-            {/* <div className="col-sm-6 col-md-3 col-lg-3 web"> */}
-            {/*   <div className="portfolio-item"> */}
-            {/*     <div className="hover-bg"> */}
-            {/*       <a */}
-            {/*         href="/img/portfolio/08-large.jpg" */}
-            {/*         title="Project Title" */}
-            {/*         data-lightbox-gallery="gallery1" */}
-            {/*       > */}
-            {/*         <div className="hover-text"> */}
-            {/*           <h4>Project Title</h4> */}
-            {/*         </div> */}
-            {/*         <img */}
-            {/*           src="/img/portfolio/08-small.jpg" */}
-            {/*           className="img-responsive" */}
-            {/*           alt="Project Title" */}
-            {/*         /> */}
-            {/*       </a> */}
-            {/*     </div> */}
-            {/*   </div> */}
-            {/* </div> */}
-            {/* <div className="col-sm-6 col-md-3 col-lg-3 product"> */}
-            {/*   <div className="portfolio-item"> */}
-            {/*     <div className="hover-bg"> */}
-            {/*       <a */}
-            {/*         href="/img/portfolio/09-large.jpg" */}
-            {/*         title="Project Title" */}
-            {/*         data-lightbox-gallery="gallery1" */}
-            {/*       > */}
-            {/*         <div className="hover-text"> */}
-            {/*           <h4>Project Title</h4> */}
-            {/*         </div> */}
-            {/*         <img */}
-            {/*           src="/img/portfolio/09-small.jpg" */}
-            {/*           className="img-responsive" */}
-            {/*           alt="Project Title" */}
-            {/*         /> */}
-            {/*       </a> */}
-            {/*     </div> */}
-            {/*   </div> */}
-            {/* </div> */}
-            {/* <div className="col-sm-6 col-md-3 col-lg-3 photography"> */}
-            {/*   <div className="portfolio-item"> */}
-            {/*     <div className="hover-bg"> */}
-            {/*       <a */}
-            {/*         href="/img/portfolio/10-large.jpg" */}
-            {/*         title="Project Title" */}
-            {/*         data-lightbox-gallery="gallery1" */}
-            {/*       > */}
-            {/*         <div className="hover-text"> */}
-            {/*           <h4>Project Title</h4> */}
-            {/*         </div> */}
-            {/*         <img */}
-            {/*           src="/img/portfolio/10-small.jpg" */}
-            {/*           className="img-responsive" */}
-            {/*           alt="Project Title" */}
-            {/*         /> */}
-            {/*       </a> */}
-            {/*     </div> */}
-            {/*   </div> */}
-            {/* </div> */}
-            {/* <div className="col-sm-6 col-md-3 col-lg-3 photography"> */}
-            {/*   <div className="portfolio-item"> */}
-            {/*     <div className="hover-bg"> */}
-            {/*       <a */}
-            {/*         href="/img/portfolio/11-large.jpg" */}
-            {/*         title="Project Title" */}
-            {/*         data-lightbox-gallery="gallery1" */}
-            {/*       > */}
-            {/*         <div className="hover-text"> */}
-            {/*           <h4>Project Title</h4> */}
-            {/*         </div> */}
-            {/*         <img */}
-            {/*           src="/img/portfolio/11-small.jpg" */}
-            {/*           className="img-responsive" */}
-            {/*           alt="Project Title" */}
-            {/*         /> */}
-            {/*       </a> */}
-            {/*     </div> */}
-            {/*   </div> */}
-            {/* </div> */}
-            {/* <div className="col-sm-6 col-md-3 col-lg-3 web"> */}
-            {/*   <div className="portfolio-item"> */}
-            {/*     <div className="hover-bg"> */}
-            {/*       <a */}
-            {/*         href="/img/portfolio/12-large.jpg" */}
-            {/*         title="Project Title" */}
-            {/*         data-lightbox-gallery="gallery1" */}
-            {/*       > */}
-            {/*         <div className="hover-text"> */}
-            {/*           <h4>Project Title</h4> */}
-            {/*         </div> */}
-            {/*         <img */}
-            {/*           src="/img/portfolio/12-small.jpg" */}
-            {/*           className="img-responsive" */}
-            {/*           alt="Project Title" */}
-            {/*         /> */}
-            {/*       </a> */}
-            {/*     </div> */}
-            {/*   </div> */}
-            {/* </div> */}
-            {/* <Watch /> */}
-            {/* </div> */}
+                </div>
+              ))}
+              {/* <div className="col-sm-6 col-md-3 col-lg-3 product"> */}
+              {/*   <div className="portfolio-item"> */}
+              {/*     <div className="hover-bg"> */}
+              {/*       <a */}
+              {/*         href="/img/portfolio/02-large.jpg" */}
+              {/*         title="Project Title" */}
+              {/*         data-lightbox-gallery="gallery1" */}
+              {/*       > */}
+              {/*         <div className="hover-text"> */}
+              {/*           <h4>Project Title</h4> */}
+              {/*         </div> */}
+              {/*         <img */}
+              {/*           src="/img/portfolio/02-small.jpg" */}
+              {/*           className="img-responsive" */}
+              {/*           alt="Project Title" */}
+              {/*         /> */}
+              {/*       </a> */}
+              {/*     </div> */}
+              {/*   </div> */}
+              {/* </div> */}
+              {/* <div className="col-sm-6 col-md-3 col-lg-3 web"> */}
+              {/*   <div className="portfolio-item"> */}
+              {/*     <div className="hover-bg"> */}
+              {/*       <a */}
+              {/*         href="/img/portfolio/03-large.jpg" */}
+              {/*         title="Project Title" */}
+              {/*         data-lightbox-gallery="gallery1" */}
+              {/*       > */}
+              {/*         <div className="hover-text"> */}
+              {/*           <h4>Project Title</h4> */}
+              {/*         </div> */}
+              {/*         <img */}
+              {/*           src="/img/portfolio/03-small.jpg" */}
+              {/*           className="img-responsive" */}
+              {/*           alt="Project Title" */}
+              {/*         /> */}
+              {/*       </a> */}
+              {/*     </div> */}
+              {/*   </div> */}
+              {/* </div> */}
+              {/* <div className="col-sm-6 col-md-3 col-lg-3 web"> */}
+              {/*   <div className="portfolio-item"> */}
+              {/*     <div className="hover-bg"> */}
+              {/*       <a */}
+              {/*         href="/img/portfolio/04-large.jpg" */}
+              {/*         title="Project Title" */}
+              {/*         data-lightbox-gallery="gallery1" */}
+              {/*       > */}
+              {/*         <div className="hover-text"> */}
+              {/*           <h4>Project Title</h4> */}
+              {/*         </div> */}
+              {/*         <img */}
+              {/*           src="/img/portfolio/04-small.jpg" */}
+              {/*           className="img-responsive" */}
+              {/*           alt="Project Title" */}
+              {/*         /> */}
+              {/*       </a> */}
+              {/*     </div> */}
+              {/*   </div> */}
+              {/* </div> */}
+              {/* <div className="col-sm-6 col-md-3 col-lg-3 product"> */}
+              {/*   <div className="portfolio-item"> */}
+              {/*     <div className="hover-bg"> */}
+              {/*       <a */}
+              {/*         href="/img/portfolio/05-large.jpg" */}
+              {/*         title="Project Title" */}
+              {/*         data-lightbox-gallery="gallery1" */}
+              {/*       > */}
+              {/*         <div className="hover-text"> */}
+              {/*           <h4>Project Title</h4> */}
+              {/*         </div> */}
+              {/*         <img */}
+              {/*           src="/img/portfolio/05-small.jpg" */}
+              {/*           className="img-responsive" */}
+              {/*           alt="Project Title" */}
+              {/*         /> */}
+              {/*       </a> */}
+              {/*     </div> */}
+              {/*   </div> */}
+              {/* </div> */}
+              {/* <div className="col-sm-6 col-md-3 col-lg-3 photography"> */}
+              {/*   <div className="portfolio-item"> */}
+              {/*     <div className="hover-bg"> */}
+              {/*       <a */}
+              {/*         href="/img/portfolio/06-large.jpg" */}
+              {/*         title="Project Title" */}
+              {/*         data-lightbox-gallery="gallery1" */}
+              {/*       > */}
+              {/*         <div className="hover-text"> */}
+              {/*           <h4>Project Title</h4> */}
+              {/*         </div> */}
+              {/*         <img */}
+              {/*           src="/img/portfolio/06-small.jpg" */}
+              {/*           className="img-responsive" */}
+              {/*           alt="Project Title" */}
+              {/*         /> */}
+              {/*       </a> */}
+              {/*     </div> */}
+              {/*   </div> */}
+              {/* </div> */}
+              {/* <div className="col-sm-6 col-md-3 col-lg-3 photography"> */}
+              {/*   <div className="portfolio-item"> */}
+              {/*     <div className="hover-bg"> */}
+              {/*       <a */}
+              {/*         href="/img/portfolio/07-large.jpg" */}
+              {/*         title="Project Title" */}
+              {/*         data-lightbox-gallery="gallery1" */}
+              {/*       > */}
+              {/*         <div className="hover-text"> */}
+              {/*           <h4>Project Title</h4> */}
+              {/*         </div> */}
+              {/*         <img */}
+              {/*           src="/img/portfolio/07-small.jpg" */}
+              {/*           className="img-responsive" */}
+              {/*           alt="Project Title" */}
+              {/*         /> */}
+              {/*       </a> */}
+              {/*     </div> */}
+              {/*   </div> */}
+              {/* </div> */}
+              {/* <div className="col-sm-6 col-md-3 col-lg-3 web"> */}
+              {/*   <div className="portfolio-item"> */}
+              {/*     <div className="hover-bg"> */}
+              {/*       <a */}
+              {/*         href="/img/portfolio/08-large.jpg" */}
+              {/*         title="Project Title" */}
+              {/*         data-lightbox-gallery="gallery1" */}
+              {/*       > */}
+              {/*         <div className="hover-text"> */}
+              {/*           <h4>Project Title</h4> */}
+              {/*         </div> */}
+              {/*         <img */}
+              {/*           src="/img/portfolio/08-small.jpg" */}
+              {/*           className="img-responsive" */}
+              {/*           alt="Project Title" */}
+              {/*         /> */}
+              {/*       </a> */}
+              {/*     </div> */}
+              {/*   </div> */}
+              {/* </div> */}
+              {/* <div className="col-sm-6 col-md-3 col-lg-3 product"> */}
+              {/*   <div className="portfolio-item"> */}
+              {/*     <div className="hover-bg"> */}
+              {/*       <a */}
+              {/*         href="/img/portfolio/09-large.jpg" */}
+              {/*         title="Project Title" */}
+              {/*         data-lightbox-gallery="gallery1" */}
+              {/*       > */}
+              {/*         <div className="hover-text"> */}
+              {/*           <h4>Project Title</h4> */}
+              {/*         </div> */}
+              {/*         <img */}
+              {/*           src="/img/portfolio/09-small.jpg" */}
+              {/*           className="img-responsive" */}
+              {/*           alt="Project Title" */}
+              {/*         /> */}
+              {/*       </a> */}
+              {/*     </div> */}
+              {/*   </div> */}
+              {/* </div> */}
+              {/* <div className="col-sm-6 col-md-3 col-lg-3 photography"> */}
+              {/*   <div className="portfolio-item"> */}
+              {/*     <div className="hover-bg"> */}
+              {/*       <a */}
+              {/*         href="/img/portfolio/10-large.jpg" */}
+              {/*         title="Project Title" */}
+              {/*         data-lightbox-gallery="gallery1" */}
+              {/*       > */}
+              {/*         <div className="hover-text"> */}
+              {/*           <h4>Project Title</h4> */}
+              {/*         </div> */}
+              {/*         <img */}
+              {/*           src="/img/portfolio/10-small.jpg" */}
+              {/*           className="img-responsive" */}
+              {/*           alt="Project Title" */}
+              {/*         /> */}
+              {/*       </a> */}
+              {/*     </div> */}
+              {/*   </div> */}
+              {/* </div> */}
+              {/* <div className="col-sm-6 col-md-3 col-lg-3 photography"> */}
+              {/*   <div className="portfolio-item"> */}
+              {/*     <div className="hover-bg"> */}
+              {/*       <a */}
+              {/*         href="/img/portfolio/11-large.jpg" */}
+              {/*         title="Project Title" */}
+              {/*         data-lightbox-gallery="gallery1" */}
+              {/*       > */}
+              {/*         <div className="hover-text"> */}
+              {/*           <h4>Project Title</h4> */}
+              {/*         </div> */}
+              {/*         <img */}
+              {/*           src="/img/portfolio/11-small.jpg" */}
+              {/*           className="img-responsive" */}
+              {/*           alt="Project Title" */}
+              {/*         /> */}
+              {/*       </a> */}
+              {/*     </div> */}
+              {/*   </div> */}
+              {/* </div> */}
+              {/* <div className="col-sm-6 col-md-3 col-lg-3 web"> */}
+              {/*   <div className="portfolio-item"> */}
+              {/*     <div className="hover-bg"> */}
+              {/*       <a */}
+              {/*         href="/img/portfolio/12-large.jpg" */}
+              {/*         title="Project Title" */}
+              {/*         data-lightbox-gallery="gallery1" */}
+              {/*       > */}
+              {/*         <div className="hover-text"> */}
+              {/*           <h4>Project Title</h4> */}
+              {/*         </div> */}
+              {/*         <img */}
+              {/*           src="/img/portfolio/12-small.jpg" */}
+              {/*           className="img-responsive" */}
+              {/*           alt="Project Title" */}
+              {/*         /> */}
+              {/*       </a> */}
+              {/*     </div> */}
+              {/*   </div> */}
+              {/* </div> */}
+              {/* <Watch /> */}
+              {/* </div> */}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
