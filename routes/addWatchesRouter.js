@@ -5,8 +5,9 @@ const addWatchesRouter = require('express').Router();
 const addWatchesForm = require('../views/ModalOrder');
 
 // // console.log('!!!!!!!!', Form);
-const { Watch } = require('../db/models');
-
+const {
+  Watch
+} = require('../db/models');
 
 // const { User } = require('../../db/models');
 // const { Good } = require('../../db/models');
@@ -19,37 +20,40 @@ const { Watch } = require('../db/models');
 // });
 
 addWatchesRouter.post('/', async (req, res) => {
-  // оборачиваем в трай-кетч
-  const {
-    title,
-    image,
-    category,
-    case1,
-    strap,
-    glass,
-    mechanism,
-    water,
-    description,
-    price,
-  } = req.body;
+  // / оборачиваем в трай-кетч
+  if (res.locals.user?.admin) {
+    const {
+      title,
+      image,
+      category,
+      case1,
+      strap,
+      glass,
+      mechanism,
+      water,
+      description,
+      price,
+    } = req.body;
 
-  await Watch.create({
-    title,
-    image,
-    category,
-    case1,
-    strap,
-    glass,
-    mechanism,
-    water,
-    description,
-    price,
-  });
+    await Watch.create({
+      title,
+      image,
+      category,
+      case1,
+      strap,
+      glass,
+      mechanism,
+      water,
+      description,
+      price,
+    });
 
-  res.json({
-    status: 'ок',
-  });
-
+    res.json({
+      status: 'ок',
+    });
+  } else {
+    res.redirect('/');
+  }
 });
 //
 module.exports = addWatchesRouter;

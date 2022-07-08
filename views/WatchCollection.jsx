@@ -97,7 +97,6 @@ module.exports = function WatchCollection({ user, watch }) {
 
             ))}
 
-          
             {/* <div className="col-sm-6 col-md-3 col-lg-3 product"> */}
             {/*   <div className="portfolio-item"> */}
             {/*     <div className="hover-bg"> */}
@@ -322,14 +321,16 @@ module.exports = function WatchCollection({ user, watch }) {
             {/* </div> */}
           </div>
           <div className="text-center center">
-              <h3>
-                <a href="" className="btn btn-custom btn-lg page-scroll" data-toggle="modal" data-target="#modalOrderForm">
-                  Add watches
-                </a>
+            <h3>
+              {(user && user.admin) ?
+              <a href="" className="btn btn-custom btn-lg page-scroll" data-toggle="modal" data-target="#modalOrderForm">
+                Add watches
+              </a>
+               : <div />
+              }
+            </h3>
 
-              </h3>
-
-            </div>
+          </div>
         </div>
       </div>
     </div>
