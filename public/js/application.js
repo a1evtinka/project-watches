@@ -1,24 +1,3 @@
-// document.orderForm.addEventListener('submit', async (event) => {
-//     event.preventDefault();
-//     console.log(event.target)
-//     const res = await fetch('/form', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify({
-//         name: event.target.inputename.value,
-//         email: event.target.inputemail.value,
-//         phone: event.target.inputephone.value,
-//         sketch: event.target.files.value,
-//         watch_id: event.target.option.value
-//       }),
-//   })
-//   const response = await res.json()
-//   console.log(response)
-//   })
-
-
 // module.exports = doupload
 // const bootstrap = require('bootstrap');
 //
@@ -47,7 +26,7 @@ document.registration?.addEventListener('submit', async (event) => {
   });
     // Дожидаемся ответа от сервера
   const result = await res.json();
-  console.log(result);
+  // console.log(result);
   // Если пришел ответ ок
   if (result.status === 'ok') {
     // то перенаправляем на ручку логина(входа)
@@ -61,7 +40,7 @@ document.registration?.addEventListener('submit', async (event) => {
 // Фетч для формы входа (если уже вошли ее нет - поэтому вопрос)
 document.login?.addEventListener('submit', async (event) => {
   event.preventDefault();
-  console.log(event.target.inputeemail.value);
+  // console.log(event.target.inputeemail.value);
   const res = await fetch('/auth/login', {
     method: 'POST',
     headers: {
@@ -107,3 +86,29 @@ del.forEach((el) => el.addEventListener('click', async (event) => {
   }
   // event.target.parentElement.parentElement.parentElement.remove();
 }));
+
+// fetch формы заказа start
+document.querySelector('#btformorder')
+  .addEventListener('click', async (event) => {
+    event.preventDefault();
+    const formOrder = event.target.closest('form');
+    console.log(formOrder.querySelector('.form-control').value);
+
+    const res = await fetch('/form', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: formOrder.querySelector('#nameFormOrder').value,
+        email: formOrder.querySelector('#emailFormOrder').value,
+        phone: formOrder.querySelector('#online_phone').value,
+        watch_id: formOrder.querySelector('#selectWatchFormOrder').value,
+        sketch: formOrder.querySelector('#fileFormOrder').value,
+      }),
+    });
+
+    const result = await res.json();
+    console.log('фетч ответ от серверва', result);
+  });
+// fetch формы заказа finish
