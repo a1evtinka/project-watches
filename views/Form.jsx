@@ -33,9 +33,14 @@ module.exports = function Form() {
 
               <select className="form-select form-group mt-5" name="option" aria-label="Default select example">
                 <option selected>Выберите часы из каталога</option>
-                <option value="1" name="1">Часы 1</option>
-                <option value="2" name="2">Часы 2</option>
-                <option value="3" name="3">Часы 3</option>
+                <option value="1" name="1">Nikita</option>
+                <option value="2" name="2">Polina</option>
+                <option value="3" name="3">Gosha</option>
+                <option value="1" name="1">Kadzhik</option>
+                <option value="2" name="2">Baga</option>
+                <option value="3" name="3">Leha</option>
+                <option value="2" name="2">Max</option>
+                <option value="3" name="3">Pavel</option>
               </select>
 
               <p>Для индивидуального заказа загрузите Ваш эскиз:</p>
