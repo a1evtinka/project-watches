@@ -4,6 +4,7 @@ const Layout = require('./Layout');
 const ModalRega = require('./ModalRega');
 const ModalLogin = require('./ModalLogin');
 const Form = require('./Form');
+const File = require('./File');
 const WatchCollection = require('./WatchCollection');
 
 module.exports = function Main({ user, watch }) {
@@ -157,6 +158,7 @@ module.exports = function Main({ user, watch }) {
             <ModalRega />
             </form> */}
             <Form />
+            <File />
             <div className="social">
               <ul>
                 {/* БУДЕМ ЛИ ДЕЛАТЬ ССЫЛКИ? */}

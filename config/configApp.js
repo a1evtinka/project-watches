@@ -15,7 +15,8 @@ const isAuth = require('../middlewares/isAuth');
 // const indexRouter = require('../routers/views/indexRouter');
 const viewsRouter = require('../routes/viewsRouter');
 const authRouter = require('../routes/authRouter');
-const formRouter = require('../routes/formRouter');
+const {formRouter, fileRouter} = require('../routes/formRouter');
+// const fileRouter = require('../routes/formRouter');
 // const indexRouter = require('../routes/index');
 
 // экспортим конфиг с включенными мидлварками
@@ -46,5 +47,6 @@ module.exports = function configApp(app) {
   app.use('/', viewsRouter); // отдельно выделили роуты для вьюшек регистрации и логина
   app.use('/auth', authRouter); // летают фетчи
   app.use('/form', formRouter);
+  app.use('/form', fileRouter);
   // app.use('/', indexRouter);
 };
