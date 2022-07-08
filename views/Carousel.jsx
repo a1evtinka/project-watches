@@ -15,7 +15,7 @@ module.exports = function Carousel() {
             </ol>
             <div className="carousel-inner" id="funnyInner">
               <div className="item active">
-                <img src="/img/test20.jpeg" alt="First slide" />
+                <img src="/img/test20.jpg" alt="First slide" />
                 <div className="carousel-caption">
                 </div>
               </div>

@@ -476,3 +476,22 @@ color: #FFF;
 	align-content: flex-start;
 	padding-top: 5%;
 }
+
+.orders {
+	color: #e5e5e5;
+	font-size: 16pt;
+	display: table;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	background: url(../img/test21.jpg) no-repeat center bottom;
+	background-color: #e5e5e5;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+}
+
+.table {
+	margin-top: 220pt;
+}

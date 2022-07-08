@@ -68,7 +68,7 @@ module.exports = function Main({ user }) {
 
         <div className="intro">
           <Carousel />
-          <div className="container">
+          {/* <div className="container">
             <div className="row">
               <div className="intro-text">
                 <h1>Watches</h1>
@@ -76,7 +76,7 @@ module.exports = function Main({ user }) {
                 <a href="#about" className="btn btn-custom btn-lg page-scroll">Learn More</a>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </header>
       <div id="about">
