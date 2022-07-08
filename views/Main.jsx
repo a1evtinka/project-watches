@@ -1,8 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 const Form = require('./Form');
+const WatchCollection = require('./WatchCollection');
 
-module.exports = function Main({ user }) {
+module.exports = function Main({ user, watch }) {
   return (
     <Layout user={user}>
       <nav id="menu" className="navbar navbar-default navbar-fixed-top">
@@ -39,7 +40,7 @@ module.exports = function Main({ user }) {
               <li><a href="#contact" className="page-scroll">Order</a></li>
               <li>
                 {
-                  (user && user.name) || <a className="page-scroll" href="/registration">Registration</a>
+                  (user && user.name) ? <a className="page-scroll" href="/">{user.name}</a> : <a className="page-scroll" href="/registration">Registration</a>
                 }
               </li>
               <li>
@@ -52,7 +53,7 @@ module.exports = function Main({ user }) {
               <li>
                 {
                   (user && user.admin)
-                    ? <a className="page-scroll" href="/admin_panel">Панель администратора</a>
+                    ? <a className="page-scroll" href="/admin_panel">Admin Panel</a>
                     : <div />
                 }
               </li>
@@ -97,273 +98,7 @@ module.exports = function Main({ user }) {
           </div>
         </div>
       </div>
-      <div id="portfolio">
-        <div className="container">
-          <div className="section-title text-center center">
-            <h2>Watches Collection</h2>
-            <hr />
-          </div>
-          <div className="categories">
-            <ul className="cat">
-              <li>
-                {/* ЗДЕСЬ СДЕЛАТЬ ФИЛЬТР ПО ТИПАМ ЧАСОВ */}
-                <ol className="type">
-                  <li><a href="#" data-filter="*" className="active">All</a></li>
-                  <li><a href="#" data-filter=".web">Web Design</a></li>
-                  <li><a href="#" data-filter=".photography">Photography</a></li>
-                  <li><a href="#" data-filter=".product">Product Design</a></li>
-                </ol>
-              </li>
-            </ul>
-            <div className="clearfix" />
-          </div>
-          <div className="row">
-            <div className="portfolio-items">
-              <div className="col-sm-6 col-md-3 col-lg-3 web">
-                <div className="portfolio-item">
-                  <div className="hover-bg">
-                    <a
-                      href="/img/portfolio/01-large.jpg"
-                      title="Project Title"
-                      data-lightbox-gallery="gallery1"
-                    >
-                      <div className="hover-text">
-                        {/* НАПИСАТЬ МОДЕЛИ ЧАСОВ В H4 */}
-                        <h4>Project Title</h4>
-                      </div>
-                      <img
-                        src="/img/portfolio/01-small.jpg"
-                        className="img-responsive"
-                        alt="Project Title"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-6 col-md-3 col-lg-3 product">
-                <div className="portfolio-item">
-                  <div className="hover-bg">
-                    <a
-                      href="/img/portfolio/02-large.jpg"
-                      title="Project Title"
-                      data-lightbox-gallery="gallery1"
-                    >
-                      <div className="hover-text">
-                        <h4>Project Title</h4>
-                      </div>
-                      <img
-                        src="/img/portfolio/02-small.jpg"
-                        className="img-responsive"
-                        alt="Project Title"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-6 col-md-3 col-lg-3 web">
-                <div className="portfolio-item">
-                  <div className="hover-bg">
-                    <a
-                      href="/img/portfolio/03-large.jpg"
-                      title="Project Title"
-                      data-lightbox-gallery="gallery1"
-                    >
-                      <div className="hover-text">
-                        <h4>Project Title</h4>
-                      </div>
-                      <img
-                        src="/img/portfolio/03-small.jpg"
-                        className="img-responsive"
-                        alt="Project Title"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-6 col-md-3 col-lg-3 web">
-                <div className="portfolio-item">
-                  <div className="hover-bg">
-                    <a
-                      href="/img/portfolio/04-large.jpg"
-                      title="Project Title"
-                      data-lightbox-gallery="gallery1"
-                    >
-                      <div className="hover-text">
-                        <h4>Project Title</h4>
-                      </div>
-                      <img
-                        src="/img/portfolio/04-small.jpg"
-                        className="img-responsive"
-                        alt="Project Title"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-6 col-md-3 col-lg-3 product">
-                <div className="portfolio-item">
-                  <div className="hover-bg">
-                    <a
-                      href="/img/portfolio/05-large.jpg"
-                      title="Project Title"
-                      data-lightbox-gallery="gallery1"
-                    >
-                      <div className="hover-text">
-                        <h4>Project Title</h4>
-                      </div>
-                      <img
-                        src="/img/portfolio/05-small.jpg"
-                        className="img-responsive"
-                        alt="Project Title"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-6 col-md-3 col-lg-3 photography">
-                <div className="portfolio-item">
-                  <div className="hover-bg">
-                    <a
-                      href="/img/portfolio/06-large.jpg"
-                      title="Project Title"
-                      data-lightbox-gallery="gallery1"
-                    >
-                      <div className="hover-text">
-                        <h4>Project Title</h4>
-                      </div>
-                      <img
-                        src="/img/portfolio/06-small.jpg"
-                        className="img-responsive"
-                        alt="Project Title"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-6 col-md-3 col-lg-3 photography">
-                <div className="portfolio-item">
-                  <div className="hover-bg">
-                    <a
-                      href="/img/portfolio/07-large.jpg"
-                      title="Project Title"
-                      data-lightbox-gallery="gallery1"
-                    >
-                      <div className="hover-text">
-                        <h4>Project Title</h4>
-                      </div>
-                      <img
-                        src="/img/portfolio/07-small.jpg"
-                        className="img-responsive"
-                        alt="Project Title"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-6 col-md-3 col-lg-3 web">
-                <div className="portfolio-item">
-                  <div className="hover-bg">
-                    <a
-                      href="/img/portfolio/08-large.jpg"
-                      title="Project Title"
-                      data-lightbox-gallery="gallery1"
-                    >
-                      <div className="hover-text">
-                        <h4>Project Title</h4>
-                      </div>
-                      <img
-                        src="/img/portfolio/08-small.jpg"
-                        className="img-responsive"
-                        alt="Project Title"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-6 col-md-3 col-lg-3 product">
-                <div className="portfolio-item">
-                  <div className="hover-bg">
-                    <a
-                      href="/img/portfolio/09-large.jpg"
-                      title="Project Title"
-                      data-lightbox-gallery="gallery1"
-                    >
-                      <div className="hover-text">
-                        <h4>Project Title</h4>
-                      </div>
-                      <img
-                        src="/img/portfolio/09-small.jpg"
-                        className="img-responsive"
-                        alt="Project Title"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-6 col-md-3 col-lg-3 photography">
-                <div className="portfolio-item">
-                  <div className="hover-bg">
-                    <a
-                      href="/img/portfolio/10-large.jpg"
-                      title="Project Title"
-                      data-lightbox-gallery="gallery1"
-                    >
-                      <div className="hover-text">
-                        <h4>Project Title</h4>
-                      </div>
-                      <img
-                        src="/img/portfolio/10-small.jpg"
-                        className="img-responsive"
-                        alt="Project Title"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-6 col-md-3 col-lg-3 photography">
-                <div className="portfolio-item">
-                  <div className="hover-bg">
-                    <a
-                      href="/img/portfolio/11-large.jpg"
-                      title="Project Title"
-                      data-lightbox-gallery="gallery1"
-                    >
-                      <div className="hover-text">
-                        <h4>Project Title</h4>
-                      </div>
-                      <img
-                        src="/img/portfolio/11-small.jpg"
-                        className="img-responsive"
-                        alt="Project Title"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-6 col-md-3 col-lg-3 web">
-                <div className="portfolio-item">
-                  <div className="hover-bg">
-                    <a
-                      href="/img/portfolio/12-large.jpg"
-                      title="Project Title"
-                      data-lightbox-gallery="gallery1"
-                    >
-                      <div className="hover-text">
-                        <h4>Project Title</h4>
-                      </div>
-                      <img
-                        src="/img/portfolio/12-small.jpg"
-                        className="img-responsive"
-                        alt="Project Title"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <WatchCollection watch={watch} />
       <div id="contact" className="text-center">
         <div className="container">
           <div className="section-title center">

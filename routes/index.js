@@ -11,6 +11,10 @@ const Form = require('../views/Form');
 //   res.end(html);
 // });
 
+// const router = require('express').Router();
+// const nodemailer = require('nodemailer');
+// const transporter = require('./nodemailer');
+
 // const { Watch } = require('../db/models');
 // const WatchesList = require('../views/WatchesList');
 
