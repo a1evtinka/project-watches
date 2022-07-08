@@ -13,6 +13,7 @@ const path = require('path');
 const configApp = require('./config/configApp');
 
 const app = express();
+// const PORT = process.env.PORT ;
 
 configApp(app);
 const PORT = process.env.PORT ?? 3000;
@@ -43,14 +44,16 @@ const PORT = process.env.PORT ?? 3000;
 const indexRouter = require('./routes/index');
 const ordersRouter = require('./routes/orders');
 // const entriesRouter = require('./routes/entries');
+const formRouter = require('./routes/formRouter');
 
 // app.use('/', indexRouter);
 app.use('/admin_panel', ordersRouter);
+app.use('/form', formRouter)
 
-app.use(logger('dev'));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+//роутер для загрузки изображений
+const uploadRouter = require('./routes/uploadRouter');
+
+app.use('/', uploadRouter);
 
 app.use((req, res, next) => {
   const error = createError(404, 'Запрашиваемой страницы не существует на сервере.');

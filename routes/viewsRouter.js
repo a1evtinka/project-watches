@@ -11,8 +11,9 @@ const { Order, Watch } = require('../db/models');
 const OrdersPage = require('../views/OrdersPage');
 
 // Создаем и рендерим компонент формы регистрации
-viewsRouter.get('/', (req, res) => {
-  const regform = React.createElement(Main, { user: res.locals.user });
+viewsRouter.get('/', async (req, res) => {
+  const watch = await Watch.findAll();
+  const regform = React.createElement(Main, { user: res.locals.user, watch });
   const html = ReactDOMServer.renderToStaticMarkup(regform);
   res.write('<!doctype html>');
   res.end(html);
@@ -46,5 +47,20 @@ viewsRouter.get('/admin_panel', async (req, res) => {
     res.redirect('/');
   }
 });
+
+// viewsRouter.get('/', async (req, res) => {
+//   let watch;
+//   try {
+//     watch = await Watch.findAll();
+//     console.log(watch);
+//   } catch (error) {
+//     res.status('500').send('Database failure');
+//     return;
+//   }
+//   const watches = React.createElement(Watch, { watch });
+//   const html = ReactDOMServer.renderToStaticMarkup(watches);
+//   res.write('<!doctype html>');
+//   res.end(html);
+// });
 
 module.exports = viewsRouter;

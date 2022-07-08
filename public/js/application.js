@@ -70,3 +70,17 @@
 //     // }
 //   }
 // });
+
+
+const del = document.querySelectorAll('#delete');
+console.log(del);
+del.forEach((el) => el.addEventListener('click', async (event) => {
+  event.preventDefault();
+  const id = event.target.getAttribute('delid');
+  // console.log(id);
+  await fetch(`/${id}`, {
+    method: 'DELETE',
+  });
+  event.target.closest('.col-sm-6').remove();
+  // event.target.parentElement.parentElement.parentElement.remove();
+}));
