@@ -45,7 +45,7 @@ module.exports = function Main({ user, watch }) {
               <li><a href="#contact" className="page-scroll">Order</a></li>
               <li>
                 {
-                  (user && user.name) || <a href="" className="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm" className="page-scroll">Registration</a>
+                  (user && user.name) ? <a href="/" className="page-scroll">{user.name}</a> : <a href="" className="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm" className="page-scroll">Registration</a>
                 }
               </li>
               <li>
