@@ -45,7 +45,7 @@ const buttonLog = document.querySelector('#button2');
 buttonLog.addEventListener('click', async (event) => {
     event.preventDefault();
     const form = event.target.closest('form');
-    console.log(form.querySelector('#defaultForm-email2').value);
+    // console.log(form.querySelector('#defaultForm-email2').value);
   const res = await fetch('/auth/login', {
     method: 'POST',
     headers: {
@@ -57,9 +57,7 @@ buttonLog.addEventListener('click', async (event) => {
     }),
   });
   // Дожидаемся ответа от сервера
-  console.log('111111111');
   const result = await res.json();
-  console.log('22222222222');
   // console.log(result);
   // Если пришел ответ ок
   if (result.status === 'email check') {
@@ -68,7 +66,7 @@ buttonLog.addEventListener('click', async (event) => {
   if (result.status === 'password check') {
     document.querySelector('.password').innerText = await result.errorMessage;
   }
-  if (result.status === 'ok') {
+  if (result.status === 'ok') {//res.status = 200? 
     // то перенаправляем на ручку мейн
     window.location.assign('/');
     // если нет (не ок)
