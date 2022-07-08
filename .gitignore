@@ -12,6 +12,7 @@ package-lock.json
 package.json
 
 /public/uploads
+/sessions
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
