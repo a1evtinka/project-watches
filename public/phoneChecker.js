@@ -14,7 +14,8 @@ function setCursorPosition(pos, e) {
 }
 // проверка вводимых пользователей символов
 function mask(e) {
-  console.log('mask', e);
+  // console.log('mask', e);
+
   let matrix = this.placeholder;
   let // .defaultValue
     i = 0;
@@ -30,6 +31,7 @@ function mask(e) {
 window.addEventListener('DOMContentLoaded', () => {
   const input = document.querySelector('#online_phone');
   input.addEventListener('input', mask, false);
-  input.focus();
-  setCursorPosition(3, input);
+
+  // input.focus();
+  // setCursorPosition(3, input);
 });
