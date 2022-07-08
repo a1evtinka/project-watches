@@ -17,7 +17,6 @@ module.exports = (sequelize, DataTypes) => {
   Order.init({
     watch_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'Watch',
         key: 'id',
@@ -25,7 +24,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'User',
         key: 'id',
@@ -41,7 +39,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     sketch: {
       type: DataTypes.TEXT,
-      allowNull: false,
     },
     phone: {
       type: DataTypes.TEXT,

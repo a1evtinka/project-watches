@@ -9,7 +9,6 @@ module.exports = {
       },
       watch_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
           model: 'Watches',
           key: 'id',
@@ -18,7 +17,6 @@ module.exports = {
       },
       user_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
           model: 'Users',
           key: 'id',
@@ -34,7 +32,7 @@ module.exports = {
       },
       sketch: {
         type: Sequelize.TEXT,
-        allowNull: false,
+
       },
       phone: {
         type: Sequelize.TEXT,

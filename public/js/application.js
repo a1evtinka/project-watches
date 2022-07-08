@@ -1,5 +1,3 @@
-
-
 // document.orderForm.addEventListener('submit', async (event) => {
 //     event.preventDefault();
 //     console.log(event.target)
@@ -19,6 +17,7 @@
 //   const response = await res.json()
 //   console.log(response)
 //   })
+
 
 // module.exports = doupload
 // const bootstrap = require('bootstrap');
