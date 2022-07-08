@@ -1,6 +1,6 @@
 const multer = require('multer');
 const uploadMiddleware = require('./upload-midleware');
-const orderForm = require('../views/Form')
+const orderForm = require('../views/Form');
 
 module.exports = {
   uploadForm(req, res) {

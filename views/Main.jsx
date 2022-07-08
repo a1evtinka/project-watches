@@ -1,5 +1,6 @@
 const React = require('react');
 const Layout = require('./Layout');
+const Form = require('./Form');
 const WatchCollection = require('./WatchCollection');
 
 module.exports = function Main({ user, watch }) {
@@ -105,7 +106,7 @@ module.exports = function Main({ user, watch }) {
             <hr />
           </div>
           <div className="col-md-8 col-md-offset-2">
-            <form name="sentMessage" id="contactForm" noValidate>
+            {/* <form name="sentMessage" id="contactForm" noValidate>
               <div className="row">
                 <div className="col-md-6">
                   <div className="form-group">
@@ -145,7 +146,8 @@ module.exports = function Main({ user, watch }) {
               </div>
               <div id="success" />
               <button type="submit" className="btn btn-default btn-lg">Make an order</button>
-            </form>
+            </form> */}
+            <Form />
             <div className="social">
               <ul>
                 {/* БУДЕМ ЛИ ДЕЛАТЬ ССЫЛКИ? */}
