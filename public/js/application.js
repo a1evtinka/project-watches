@@ -116,3 +116,29 @@ del.forEach((el) => el.addEventListener('click', async (event) => {
   }
   // event.target.parentElement.parentElement.parentElement.remove();
 }));
+
+// fetch формы заказа start
+document.querySelector('#btformorder')
+  .addEventListener('click', async (event) => {
+    event.preventDefault();
+    const formOrder = event.target.closest('form');
+    console.log(formOrder.querySelector('.form-control').value);
+
+    const res = await fetch('/form', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: formOrder.querySelector('#nameFormOrder').value,
+        email: formOrder.querySelector('#emailFormOrder').value,
+        phone: formOrder.querySelector('#online_phone').value,
+        watch_id: formOrder.querySelector('#selectWatchFormOrder').value,
+        sketch: formOrder.querySelector('#fileFormOrder').value,
+      }),
+    });
+
+    const result = await res.json();
+    console.log('фетч ответ от серверва', result);
+  });
+// fetch формы заказа finish

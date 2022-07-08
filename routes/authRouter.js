@@ -41,7 +41,7 @@ authRouter.post('/registration', async (req, res) => {
     });
 
     // отправка письма start
-    console.log('мыло пользователя', email);
+    //console.log('мыло пользователя', email);
 
     const mail = {
       from: 'Pavel Egorov <pewatches2022@gmail.com>',

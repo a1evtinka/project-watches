@@ -1,13 +1,15 @@
 // const ReactDOMServer = require('react-dom/server');
 // const React = require('react');
-//
-// const formRouter = require('express').Router();
-// const Form = require('../views/Form');
-//
-// // console.log('!!!!!!!!', Form);
-// const {
-//   Order
-// } = require('../db/models');
+
+const multer = require('multer');
+const upload = multer({ dest: '../public/uploads' });
+const formRouter = require('express').Router();
+const Form = require('../views/Form');
+
+// console.log('!!!!!!!!', Form);
+const {
+  Order,
+} = require('../db/models');
 
 // const { User } = require('../../db/models');
 // const { Good } = require('../../db/models');
@@ -19,28 +21,27 @@
 //   res.end(html);
 // });
 
-// formRouter.post('/form', async (req, res) => {
-//   // оборачиваем в трай-кетч
-//   const {
-//     name,
-//     email,
-//     phone,
-//     sketch,
-//     watch_id,
-//   } = req.body;
-//   const order = await Order.create({
-//     name,
-//     email,
-//     phone,
-//     sketch,
-//     watch_id,
-//   });
-//   res.json({
-//     status: 'ок',
-//     errorMessage: 'Введите корректную почту'
-//   });
-//   console.log(order)
-//   console.log('test')
-// });
-//
-// module.exports = formRouter;
+// upload.single('filedata'),
+formRouter.post('/', async (req, res) => {
+  console.log('регбaди', req.body);
+  // const filedata = req.file;
+  const {
+    name,
+    email,
+    phone,
+    watch_id,
+  } = req.body;
+
+  const order = await Order.create({
+    name,
+    email,
+    phone,
+    watch_id,
+  });
+
+  res.json({
+    status: 'ок',
+  });
+});
+
+module.exports = formRouter;

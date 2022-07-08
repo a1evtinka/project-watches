@@ -7,12 +7,13 @@ module.exports = function Form() {
       <div className="container h-100">
         <div className="row h-100 justify-content-center align-items-center">
           <div className="col-10 col-md-8 col-lg-6">
-            <form name="orderForm" className="signup-form" action="/form" method="post" encType="multipart/form-data">
+            <form name="orderForm" className="signup-form" action="/form" method="post" encType="multipart/form-data" id="formForOrder">
+
               <div className="form-group mt-5">
-                <input type="text" name="inputename" className="form-control" placeholder="name..." required />
+                <input type="text" name="inputename" id="nameFormOrder" className="form-control" placeholder="name..." required />
               </div>
               <div className="form-group mt-5">
-                <input type="email" name="inputemail" className="form-control" placeholder="email..." required />
+                <input type="email" name="inputemail" id="emailFormOrder" className="form-control " placeholder="email..." required />
               </div>
               <div className="form-group mt-5">
             
@@ -31,7 +32,8 @@ module.exports = function Form() {
 
               </div>
 
-              <select className="form-select form-group mt-5" name="option" aria-label="Default select example">
+              <select className="form-select" id="selectWatchFormOrder" name="option" aria-label="Default select example">
+
                 <option selected>Выберите часы из каталога</option>
                 <option value="1" name="1">Nikita</option>
                 <option value="2" name="2">Polina</option>
@@ -46,10 +48,10 @@ module.exports = function Form() {
               <p>Для индивидуального заказа загрузите Ваш эскиз:</p>
 
               <label>Файл</label>
-              <input type="file" name="files" className=" btn-secondary btn-lg" multiple />
+              <input type="file" name="files" id="fileFormOrder" className=" btn-secondary btn-lg" multiple />
 
               <div className="text-center mt-5">
-                <button type="submit" className="btn btn-secondary btn-default btn-lg">Отправить</button>
+                <button type="submit" className="btn btn-secondary btn-default btn-lg" id="btformorder">Отправить</button>
               </div>
 
             </form>
