@@ -31,6 +31,8 @@ module.exports = function Layout({ user, children }) {
           rel="stylesheet"
           type="text/css"
         />
+        <script type="text/javascript" src="/js/jquery.1.11.1.js" />
+        <script type="text/javascript" src="/js/bootstrap.js" />
         {/* <link */}
         {/*   href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" */}
         {/*   rel="stylesheet" */}
@@ -48,8 +50,6 @@ module.exports = function Layout({ user, children }) {
 
       <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
         {children}
-        <script type="text/javascript" src="/js/jquery.1.11.1.js" />
-        <script type="text/javascript" src="/js/bootstrap.js" />
         <script type="text/javascript" src="/js/SmoothScroll.js" />
         <script type="text/javascript" src="/js/nivo-lightbox.js" />
         <script type="text/javascript" src="/js/jquery.isotope.js" />
@@ -59,6 +59,7 @@ module.exports = function Layout({ user, children }) {
         <script type="text/javascript" defer src="/js/application.js"/>
         <script type="text/javascript" defer src="/js/modalRega.js"/>
         <script type="text/javascript" defer src="/js/modalLogin.js"/>
+        <script type="text/javascript" defer src="/js/modalEdit.js"/>
         <script defer src="/phoneChecker.js"/>
       </body>
     </html>

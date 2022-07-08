@@ -9,6 +9,7 @@ const Login = require('../views/Login');
 // const { User } = require('../db/models');
 const { Order, Watch } = require('../db/models');
 const OrdersPage = require('../views/OrdersPage');
+const EditWatch = require('../views/EditWatch');
 
 // Создаем и рендерим компонент формы регистрации
 viewsRouter.get('/', async (req, res) => {
@@ -57,6 +58,33 @@ viewsRouter.get('/admin_panel', async (req, res) => {
     res.redirect('/');
   }
 });
+
+viewsRouter.get('/edit/:id', async (req, res) => {
+  const login = React.createElement(EditWatch);
+  const html = ReactDOMServer.renderToStaticMarkup(login);
+  res.write('<!doctype html>');
+  res.end(html);
+});
+
+viewsRouter.put('/edit/:id', async (req, res) => {
+  const edit = await Watch.update({
+    title: req.body.title,
+    category: req.body.category,
+    case: req.body.case,
+    strap: req.body.strap,
+    glass: req.body.glass,
+    mechanism: req.body.mechanism,
+    water: req.body.water,
+    description: req.body.description,
+    price: req.body.price,
+  }, { where: { id: req.body.id } });
+  // const login = React.createElement(Login);
+  // const html = ReactDOMServer.renderToStaticMarkup(login);
+  // res.write('<!doctype html>');
+  // res.end(html);
+  res.json({ status: 'ok' });
+});
+
 // ДОБАВИТЬ ЛОГИКУ ТОГО, ЧТО ТОЛЬКО У АДМИНА ЕСТЬ ВОЗМОЖНОСТЬ УДАЛЯТЬ,ИЗМЕНЯТЬ И ДОБАВЛЯТЬ ЭЛЕМЕНТЫ
 // if (res.locals.user?.admin) {
 

@@ -92,14 +92,14 @@ module.exports = function Main({ user, watch }) {
           <div className="row">
             <div className="col-xs-12 col-md-6">
               <img
-                src="/img/bartender.png"
+                src="/img/pavelE.jpg"
                 className="img-responsive"
                 alt=""
               />
             </div>
             <div className="col-xs-12 col-md-6">
               <div className="about-text">
-                <p>Меня зовут Роман! Рад знакомству. Я очень люблю когда все делается в назначенный срок, поэтому начал производство часов ручной работы</p>
+                <p>Меня зовут Павел! Рад знакомству. Я очень люблю когда все делается в назначенный срок, поэтому начал производство часов ручной работы</p>
                 <p>Моя главная особенность - это стиль. Все часы представленные моей мастерской - это единственный экземпляр.</p>
                 <a href="#portfolio" className="btn btn-default btn-lg page-scroll">Watches Collection</a>
               </div>
@@ -164,10 +164,10 @@ module.exports = function Main({ user, watch }) {
             <div className="social">
               <ul>
                 {/* БУДЕМ ЛИ ДЕЛАТЬ ССЫЛКИ? */}
-                <li><a href="#"><i className="fa fa-facebook" /></a></li>
-                <li><a href="#"><i className="fa fa-twitter" /></a></li>
+                <li><a href="#10"><i className="fa fa-facebook" /></a></li>
+                <li><a href="#11"><i className="fa fa-twitter" /></a></li>
                 <li><a href="https://github.com/a1evtinka/project-watches"><i className="fa fa-github" /></a></li>
-                <li><a href="#"><i className="fa fa-codepen" /></a></li>
+                <li><a href="#12"><i className="fa fa-codepen" /></a></li>
               </ul>
             </div>
           </div>
