@@ -29,6 +29,12 @@ module.exports = function ModalWatches() {
               </div>
 
               <div className="md-form mb-5">
+                <i className="fas fa-user prefix grey-text" />
+                <input type="text" id="image" className="form-control validate" />
+                <label data-error="wrong" data-success="right" htmlFor="orangeForm-name" name="image">Image</label>
+              </div>
+
+              <div className="md-form mb-5">
                 <i className="fas fa-envelope prefix grey-text" />
                 <input type="text" id="category" className="form-control validate" />
                 <label data-error="wrong" data-success="right" htmlFor="defaultForm-email" name="category">Category</label>
@@ -78,7 +84,7 @@ module.exports = function ModalWatches() {
 
             </div>
             <div className="modal-footer d-flex justify-content-center">
-              <button className="btn btn-default" type="submit" id="button1">Add watches</button>
+              <button className="btn btn-default" type="submit" id="addwatchesbutton">Add watches</button>
             </div>
           </div>
         </div>

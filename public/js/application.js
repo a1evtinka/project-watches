@@ -91,7 +91,6 @@
 //   console.log(response)
 //   })
 
-
 // module.exports = doupload
 // const bootstrap = require('bootstrap');
 //
@@ -101,6 +100,31 @@
 //   wrap: false,
 // });
 
+// фетч запрос при отправке формы addWatches
+document.querySelector('#addwatchesbutton').addEventListener('click', async (event) => {
+  event.preventDefault();
+  const addWatchesForm = event.target.closest('form');
+  // console.log(addWatchesForm.querySelector('#price').value)
+  const res = await fetch('/', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      title: addWatchesForm.querySelector('#title').value,
+      image: addWatchesForm.querySelector('#image').value,
+      category: addWatchesForm.querySelector('#category').value,
+      case: addWatchesForm.querySelector('#case').value,
+      strap: addWatchesForm.querySelector('#strap').value,
+      mechanism: addWatchesForm.querySelector('#mechanism').value,
+      water: addWatchesForm.querySelector('#water').value,
+      description: addWatchesForm.querySelector('#description').value,
+      price: addWatchesForm.querySelector('#price').value,
+    }),
+  });
+  const result = await res.json();
+  console.log('фетч ответ от сервера', result);
+});
 
 const del = document.querySelectorAll('#delete');
 del.forEach((el) => el.addEventListener('click', async (event) => {
