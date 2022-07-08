@@ -1,14 +1,13 @@
 const React = require('react');
-const Layout = require('./Layout');
+// const Layout = require('./Layout');
 // const doupload = require('../public/application')
 
 module.exports = function Form() {
   return (
-    <Layout>
       <div className="container h-100">
         <div className="row h-100 justify-content-center align-items-center">
           <div className="col-10 col-md-8 col-lg-6">
-            <form name = "orderForm" className="signup-form" action="/form" method="post" encType="multipart/form-data">
+            <form name="orderForm" className="signup-form" action="/form" method="post" encType="multipart/form-data">
               <div className="form-group mt-5">
                 <input type="text" name="inputename" className="form-control" placeholder="name..." required />
               </div>
@@ -24,7 +23,6 @@ module.exports = function Form() {
                   name="inputephone"
                   type="tel"
                   maxLength="50"
-                  autoFocus="autofocus"
                   required="required"
                   value="+7(___)___-__-__"
                   pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}"
@@ -53,7 +51,5 @@ module.exports = function Form() {
           </div>
         </div>
       </div>
-
-    </Layout>
   );
 };
