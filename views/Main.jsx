@@ -1,5 +1,6 @@
 const React = require('react');
 const Layout = require('./Layout');
+const Form = require('./Form');
 
 module.exports = function Main({ user }) {
   return (
@@ -370,7 +371,7 @@ module.exports = function Main({ user }) {
             <hr />
           </div>
           <div className="col-md-8 col-md-offset-2">
-            <form name="sentMessage" id="contactForm" noValidate>
+            {/* <form name="sentMessage" id="contactForm" noValidate>
               <div className="row">
                 <div className="col-md-6">
                   <div className="form-group">
@@ -410,7 +411,8 @@ module.exports = function Main({ user }) {
               </div>
               <div id="success" />
               <button type="submit" className="btn btn-default btn-lg">Make an order</button>
-            </form>
+            </form> */}
+            <Form />
             <div className="social">
               <ul>
                 {/* БУДЕМ ЛИ ДЕЛАТЬ ССЫЛКИ? */}
