@@ -33,14 +33,14 @@ module.exports = function Form() {
 
               </div>
 
-              <select className="form-select" name="option" aria-label="Default select example">
+              <select className="form-select form-group mt-5" name="option" aria-label="Default select example">
                 <option selected>Выберите часы из каталога</option>
                 <option value="1" name="1">Часы 1</option>
                 <option value="2" name="2">Часы 2</option>
                 <option value="3" name="3">Часы 3</option>
               </select>
 
-              <p>Либо загрузите ваш эскиз</p>
+              <p>Для индивидуального заказа загрузите Ваш эскиз:</p>
 
               <label>Файл</label>
               <input type="file" name="files" className=" btn-secondary btn-lg" multiple />

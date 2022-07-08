@@ -90,14 +90,14 @@ module.exports = function Main({ user, watch }) {
           <div className="row">
             <div className="col-xs-12 col-md-6">
               <img
-                src="/img/bartender.png"
+                src="/img/pavelE.jpg"
                 className="img-responsive"
                 alt=""
               />
             </div>
             <div className="col-xs-12 col-md-6">
               <div className="about-text">
-                <p>Меня зовут Роман! Рад знакомству. Я очень люблю когда все делается в назначенный срок, поэтому начал производство часов ручной работы</p>
+                <p>Меня зовут Павел! Рад знакомству. Я очень люблю когда все делается в назначенный срок, поэтому начал производство часов ручной работы</p>
                 <p>Моя главная особенность - это стиль. Все часы представленные моей мастерской - это единственный экземпляр.</p>
                 <a href="#portfolio" className="btn btn-default btn-lg page-scroll">Watches Collection</a>
               </div>
